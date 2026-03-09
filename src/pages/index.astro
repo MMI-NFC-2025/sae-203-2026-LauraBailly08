@@ -1,10 +1,147 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getArtistesParDate, getScenesParNom } from '../lib/pocketbase';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Récupération des données
+const artistes = await getArtistesParDate();
+const scenes = await getScenesParNom();
+
+// Fonction pour générer l'URL des images PocketBase
+function getImageUrl(collectionId: string, recordId: string, filename: string) {
+	return `https://lafanfacomtoise.bailly-laura.fr/api/files/${collectionId}/${recordId}/${filename}`;
+}
 ---
 
 <Layout>
-	<h1>Welcome to Astro!</h1>
+	<!-- Hero Section avec image de fond -->
+	<section class="relative h-96 md:h-screen bg-cover bg-center" 
+		style={artistes.length > 0 && artistes[0].photo_principal 
+			? `background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('${getImageUrl('pbc_3158625734', artistes[0].id, artistes[0].photo_principal)}')`
+			: 'background: linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+		}>
+		<div class="absolute inset-0 flex flex-col justify-center items-center text-white text-center px-4">
+			<h1 class="text-4xl md:text-5xl font-bold mb-6">JAZZ, FANFARES & MUSIQUES DE RUES</h1>
+			<div class="flex gap-4 mb-8 flex-wrap justify-center">
+				<span class="bg-orange-400 text-white px-6 py-2 rounded-full font-semibold">27-29 juin 2025</span>
+				<span class="bg-gray-700 text-white px-6 py-2 rounded-full font-semibold">Montbéliard</span>
+			</div>
+			<div class="flex gap-4 flex-wrap justify-center">
+				<button class="bg-orange-400 text-white px-8 py-3 rounded-full font-bold hover:bg-orange-500 transition">
+					📅 Découvrir le programme
+				</button>
+				<button class="border-2 border-white text-white px-8 py-3 rounded-full font-bold hover:bg-white/20 transition">
+					🎫 Billetterie
+				</button>
+			</div>
+		</div>
+	</section>
+
+	<!-- Stats Section -->
+	<section class="bg-white py-12 px-4">
+		<div class="max-w-6xl mx-auto">
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+				<div class="bg-white p-6 rounded-lg text-center shadow-sm border">
+					<div class="text-4xl mb-2">🎤</div>
+					<p class="text-3xl font-bold text-orange-400 mb-2">{artistes.length}</p>
+					<p class="text-gray-700 font-semibold">Artistes</p>
+					<p class="text-sm text-gray-500">Jazz, fanfares et musiques de rue</p>
+				</div>
+				<div class="bg-white p-6 rounded-lg text-center shadow-sm border">
+					<div class="text-4xl mb-2">🌍</div>
+					<p class="text-3xl font-bold text-green-400 mb-2">100%</p>
+					<p class="text-gray-700 font-semibold">Festival Éco</p>
+					<p class="text-sm text-gray-500">Événement écologique</p>
+				</div>
+				<div class="bg-white p-6 rounded-lg text-center shadow-sm border">
+					<div class="text-4xl mb-2">♻️</div>
+					<p class="text-xl font-bold text-blue-400 mb-2">Gratuit</p>
+					<p class="text-gray-700 font-semibold">Entrée gratuite</p>
+					<p class="text-sm text-gray-500">À partir de 4h</p>
+				</div>
+				<div class="bg-white p-6 rounded-lg text-center shadow-sm border">
+					<div class="text-4xl mb-2">🎭</div>
+					<p class="text-3xl font-bold text-yellow-400 mb-2">{scenes.length}</p>
+					<p class="text-gray-700 font-semibold">Scènes</p>
+					<p class="text-sm text-gray-500">Dans la ville</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Découvrez le festival -->
+	<section class="py-16 px-4">
+		<div class="max-w-6xl mx-auto">
+			<h2 class="text-3xl font-bold text-center mb-12">Découvrez le festival</h2>
+			<div class="grid md:grid-cols-3 gap-8">
+				<a href="#" class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
+					<div class="text-5xl mb-4">🎶</div>
+					<h3 class="text-xl font-bold mb-2">Programme</h3>
+					<p class="text-gray-600 mb-4">Découvrez le calendrier complet des heures de la journée du festival</p>
+					<p class="text-orange-400 font-bold">Découvrir →</p>
+				</a>
+				<a href="#" class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
+					<div class="text-5xl mb-4">🎤</div>
+					<h3 class="text-xl font-bold mb-2">Artistes</h3>
+					<p class="text-gray-600 mb-4">Rencontrez les artistes basés et représentant côtés le festival</p>
+					<p class="text-orange-400 font-bold">Découvrir →</p>
+				</a>
+				<a href="#" class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition">
+					<div class="text-5xl mb-4">ℹ️</div>
+					<h3 class="text-xl font-bold mb-2">Infos pratiques</h3>
+					<p class="text-gray-600 mb-4">Tout savoir sur l'accès, les transports et l'hébergement</p>
+					<p class="text-orange-400 font-bold">Découvrir →</p>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Nos partenaires -->
+	<section class="bg-green-100 py-16 px-4">
+		<div class="max-w-6xl mx-auto">
+			<h2 class="text-3xl font-bold text-center mb-12">Nos partenaires</h2>
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+				<button class="bg-green-400 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-500 transition">
+					Ville de Montbéliard
+				</button>
+				<button class="bg-green-400 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-500 transition">
+					Pays du Montbéliard Agglomération
+				</button>
+				<button class="bg-green-400 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-500 transition">
+					Région Bourgogne-Franche-Comté
+				</button>
+				<button class="bg-green-400 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-500 transition">
+					Classement du Doubs
+				</button>
+				<button class="bg-green-400 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-500 transition">
+					La Poudrière
+				</button>
+				<button class="bg-green-400 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-500 transition">
+					La Malson
+				</button>
+				<button class="bg-green-400 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-500 transition">
+					Association des Commerçants
+				</button>
+				<button class="bg-green-400 text-white px-6 py-3 rounded-full font-semibold hover:bg-green-500 transition">
+					Crédit Agricole
+				</button>
+			</div>
+		</div>
+	</section>
+
+	<!-- Préparez votre venue -->
+	<section class="bg-gradient-to-r from-yellow-400 to-yellow-300 py-16 px-4">
+		<div class="max-w-4xl mx-auto text-center">
+			<h2 class="text-3xl font-bold mb-6">Préparez votre venue</h2>
+			<p class="text-lg mb-8 text-gray-800">Téléchargez tous les guides et les informations pratiques pour profiter du festival</p>
+			<div class="flex gap-4 flex-wrap justify-center">
+				<button class="bg-white text-yellow-600 px-8 py-3 rounded-full font-bold hover:bg-gray-100 transition">
+					📥 Télécharger le programme
+				</button>
+				<button class="border-2 border-white text-white px-8 py-3 rounded-full font-bold hover:bg-white/20 transition">
+					📱 Nous contacter
+				</button>
+			</div>
+		</div>
+	</section>
 </Layout>
+
