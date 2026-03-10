@@ -1,0 +1,123 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  const scenes = [
+    { id: 'place-saint-martin', nom_scene: 'Place Saint-Martin', description_scene: 'Scène principale du festival offrant une vue dégagée et une excellente acoustique naturelle.', localisation: 'Place Saint-Martin, Montbéliard', capacite: 1500, photo_scene: '/images/images/hero-du-site.avif' },
+    { id: 'halles', nom_scene: 'Scène des Halles', description_scene: 'Scène couverte offrant une acoustique exceptionnelle, idéale pour les performances intimistes.', localisation: 'Place des Halles, Montbéliard', capacite: 1200, photo_scene: '/images/images/musique-de-rue.avif' },
+    { id: 'parc', nom_scene: 'Scène du Parc', description_scene: 'Scène nichée dans un écrin de verdure, parfaite pour profiter de la musique dans un cadre naturel.', localisation: 'Parc du Près-la-Rose, Montbéliard', capacite: 800, photo_scene: '/images/images/scène-éco.avif' }
+  ];
+  return scenes.map((scene) => ({
+    params: { id: scene.id },
+    props: { scene }
+  }));
+}
+
+const { scene } = Astro.props;
+
+if (!scene) {
+  return Astro.redirect('/scènes');
+}
+---
+
+<Layout>
+  <!-- Back Link -->
+  <div class="max-w-6xl mx-auto px-4 py-8">
+    <a href="/scènes" class="inline-flex items-center gap-2 font-semibold mb-8 hover:opacity-80 transition" style="color: var(--color-primary);">
+      <img src="/icones/flèche-gauche-carousel.svg" alt="Retour" class="w-5 h-5">
+      Retour aux scènes
+    </a>
+  </div>
+
+  <!-- Scene Hero Section -->
+  <section class="relative w-full h-96 md:h-full overflow-hidden" style="max-height: 500px;">
+    <img 
+      src={scene.photo_scene ? `https://lafanfacomtoise.bailly-laura.fr/api/files/${scene.collectionId}/${scene.id}/${scene.photo_scene}` : '/images/images/hero-du-site.avif'} 
+      alt={scene.nom_scene} 
+      class="w-full h-full object-cover"
+    >
+    <div class="absolute inset-0 bg-black/40 flex flex-col justify-end p-8 md:p-16">
+      <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">{scene.nom_scene}</h1>
+      <div class="space-y-3">
+        <div class="flex items-center gap-3 text-white">
+          <img src="/icones/position.svg" alt="Localisation" class="w-5 h-5">
+          <span>{scene.localisation}</span>
+        </div>
+        <div class="flex items-center gap-3 text-white">
+          <img src="/icones/public.svg" alt="Capacité" class="w-5 h-5">
+          <span>Capacité : {scene.capacite} personnes</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Scene -->
+  <section class="max-w-6xl mx-auto px-4 py-16 md:py-24">
+    <div class="flex items-start gap-4 mb-8">
+      <span class="text-4xl pt-2" style="color: var(--color-primary);">●</span>
+      <div>
+        <h2 class="text-4xl font-bold text-gray-900">À propos de cette scène</h2>
+      </div>
+    </div>
+    <p class="text-lg text-gray-600 leading-relaxed max-w-3xl">{scene.description_scene}</p>
+  </section>
+
+  <!-- Scene Features -->
+  <section class="bg-gray-50 py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-gray-900 mb-12">À propos de cette scène</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <div class="flex items-start gap-4 mb-4">
+            <img src="/icones/location.svg" alt="Localisation" class="w-8 h-8 shrink-0">
+            <h3 class="text-xl font-bold text-gray-900">Localisation</h3>
+          </div>
+          <p class="text-gray-600 text-sm">{scene.localisation}</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <div class="flex items-start gap-4 mb-4">
+            <img src="/icones/public.svg" alt="Capacité" class="w-8 h-8 shrink-0">
+            <h3 class="text-xl font-bold text-gray-900">Capacité</h3>
+          </div>
+          <p class="text-gray-600 text-sm">{scene.capacite} personnes</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practical Info -->
+  <section class="max-w-6xl mx-auto px-4 py-16 md:py-24">
+    <h2 class="text-4xl font-bold text-gray-900 mb-12">Infos pratiques</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-white p-6 rounded-lg shadow-md text-center">
+        <img src="/icones/position.svg" alt="Localisation" class="w-8 h-8 mx-auto mb-3">
+        <h3 class="font-bold text-gray-900 mb-2">Localisation</h3>
+        <p class="text-sm text-gray-600">{scene.localisation}</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-md text-center">
+        <img src="/icones/public.svg" alt="Capacité" class="w-8 h-8 mx-auto mb-3">
+        <h3 class="font-bold text-gray-900 mb-2">Capacité</h3>
+        <p class="text-sm text-gray-600">{scene.capacite} personnes</p>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow-md text-center">
+        <img src="/icones/accessibility.svg" alt="Accessibilité" class="w-8 h-8 mx-auto mb-3">
+        <h3 class="font-bold text-gray-900 mb-2">Accessibilité</h3>
+        <p class="text-sm text-gray-600">PMR accueillis</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 md:py-24 text-center" style="background-color: var(--color-green-partners);">
+    <div class="max-w-2xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-gray-900 mb-4">Prêt à découvrir cette scène ?</h2>
+      <p class="text-lg text-gray-800 mb-8">Consultez le programme complet du festival pour connaître tous les artistes qui se produiront à {scene.nom_scene}.</p>
+      <a href="/programme" class="inline-block px-8 py-4 bg-gray-900 text-white font-semibold rounded-lg hover:bg-gray-800 transition">
+        Voir le programme
+      </a>
+    </div>
+  </section>
+</Layout>
