@@ -4,51 +4,51 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Le Festival - La Fanfa'Comtoise">
     <!-- SECTION HERO -->
-    <section class="relative w-full h-96 md:h-[500px] bg-cover bg-center">
+    <section class="relative w-full h-80 md:h-[450px] bg-cover bg-center">
         <img src="/images/images/hero-du-site.avif" alt="Hero du festival" class="absolute inset-0 w-full h-full object-cover">
-        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="absolute inset-0 bg-black/50"></div>
         <div class="relative flex flex-col justify-center items-center h-full px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold text-black mb-4">Le Festival</h1>
-            <p class="text-xl text-black font-medium">Un festival gratuit, écologique & accessible à tous</p>
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Le Festival</h1>
+            <p class="text-lg md:text-xl text-white/90 font-medium max-w-xl">Un festival gratuit, écologique et accessible à tous</p>
         </div>
     </section>
 
     <!-- SECTION NOTRE HISTOIRE -->
-    <section class="w-full py-16 px-4" style="background-color: #FFFBF0">
+    <section class="w-full py-16 px-4 bg-[#FFFBF0]">
         <div class="max-w-4xl mx-auto">
             <div class="flex items-center gap-3 mb-8">
-                <span class="w-6 h-6 rounded-full bg-orange-400"></span>
-                <h2 class="text-3xl font-bold">Notre histoire</h2>
+                <span class="w-4 h-4 rounded-full bg-orange-400"></span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Notre histoire</h2>
             </div>
 
             <div class="space-y-6 text-gray-700 mb-12">
-                <p class="text-lg leading-relaxed">
+                <p class="text-base md:text-lg leading-relaxed">
                     Né en 2018 de la passion d'un collectif de musiciens et d'amoureux de la culture, La Fanfa'Comtoise est devenu un rendez-vous incontournable pour les mélomanes. De la musique au jazz, de musiques de rue et de fanfares, le festival célèbre la richesse musicale de notre région à Montbéliard.
                 </p>
 
-                <p class="text-lg leading-relaxed">
+                <p class="text-base md:text-lg leading-relaxed">
                     Année après année, grâce à un festival accessible à tous, gratuit, qui célèbre la richesse musicale de notre région tout en respectant nos valeurs écologiques. Chaque année, nous accueillons des milliers de festivaliers dans le magnifique cadre du centre-ville historique de Montbéliard.
                 </p>
             </div>
 
             <!-- Stats Cards -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <article class="bg-white p-8 rounded-xl text-center border border-gray-100">
-                    <h3 class="text-4xl font-bold mb-2 text-orange-400">7<sup>e</sup></h3>
-                    <p class="font-semibold text-gray-800">Édition</p>
-                    <p class="text-sm text-gray-600">Édition en 2025</p>
+                <article class="bg-white p-8 rounded-2xl text-center border border-gray-100 shadow-sm">
+                    <p class="text-sm text-gray-500 font-medium mb-2">7e Édition</p>
+                    <h3 class="text-5xl font-bold text-orange-400 mb-1">7<sup class="text-2xl">e</sup></h3>
+                    <p class="text-gray-600 text-sm">Édition en 2025</p>
                 </article>
 
-                <article class="bg-white p-8 rounded-xl text-center border border-gray-100">
-                    <h3 class="text-4xl font-bold mb-2 text-orange-400">10k+</h3>
-                    <p class="font-semibold text-gray-800">Festivaliers</p>
-                    <p class="text-sm text-gray-600">Édition 2024</p>
+                <article class="bg-white p-8 rounded-2xl text-center border border-gray-100 shadow-sm">
+                    <p class="text-sm text-gray-500 font-medium mb-2">Festivaliers</p>
+                    <h3 class="text-5xl font-bold text-orange-400 mb-1">10k+</h3>
+                    <p class="text-gray-600 text-sm">Festivaliers en 2024</p>
                 </article>
 
-                <article class="bg-white p-8 rounded-xl text-center border border-gray-100">
-                    <h3 class="text-4xl font-bold mb-2 text-orange-400">30+</h3>
-                    <p class="font-semibold text-gray-800">Artistes</p>
-                    <p class="text-sm text-gray-600">Depuis 2018</p>
+                <article class="bg-white p-8 rounded-2xl text-center border border-gray-100 shadow-sm">
+                    <p class="text-sm text-gray-500 font-medium mb-2">Artistes</p>
+                    <h3 class="text-5xl font-bold text-orange-400 mb-1">30+</h3>
+                    <p class="text-gray-600 text-sm">Artistes depuis 2018</p>
                 </article>
             </div>
         </div>
@@ -57,67 +57,69 @@ import Layout from '../layouts/Layout.astro';
     <!-- SECTION L'ÉQUIPE -->
     <section class="w-full py-16 px-4 bg-white">
         <div class="max-w-4xl mx-auto">
-            <div class="flex items-center gap-3 mb-8">
-                <span class="w-6 h-6 rounded-full bg-orange-400"></span>
-                <h2 class="text-3xl font-bold">L'équipe</h2>
+            <div class="flex items-center gap-3 mb-6">
+                <span class="w-4 h-4 rounded-full bg-orange-400"></span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">L'équipe</h2>
             </div>
 
-            <p class="text-lg text-gray-700 mb-12">
-                La Fanfa'Comtoise, c'est avant tout une équipe qui œuvre toute l'année pour vous offrir un festival unique et de qualité.
+            <p class="text-base md:text-lg text-gray-700 mb-10">
+                La Fanfa'Comtoise, c'est avant tout une équipe qui oeuvre toute l'année pour vous offrir un festival unique et de qualité.
             </p>
 
-            <!-- Équipes organisatrice -->
-            <div class="bg-white p-8 rounded-xl border border-gray-200 mb-6">
-                <h3 class="text-2xl font-bold mb-6 text-orange-400">Équipes organisatrice</h3>
-                <ul class="space-y-3 text-gray-700">
-                    <li class="flex items-start">
-                        <span class="text-orange-400 mr-3 mt-1">•</span>
-                        <span>Direction & pilotage</span>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-orange-400 mr-3 mt-1">•</span>
-                        <span>Communication & marketing</span>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-orange-400 mr-3 mt-1">•</span>
-                        <span>Logistique & production</span>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-orange-400 mr-3 mt-1">•</span>
-                        <span>Coordination délégués</span>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-orange-400 mr-3 mt-1">•</span>
-                        <span>Relations partenaires</span>
-                    </li>
-                </ul>
-            </div>
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Équipes organisatrice -->
+                <div class="bg-gray-50 p-8 rounded-2xl">
+                    <h3 class="text-xl font-bold mb-6 text-gray-900">Équipes organisatrice</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start gap-3">
+                            <span class="text-orange-400 mt-1.5">•</span>
+                            <span>Relations partenaires</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-orange-400 mt-1.5">•</span>
+                            <span>Coordination délégués</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-orange-400 mt-1.5">•</span>
+                            <span>Logistique & production</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-orange-400 mt-1.5">•</span>
+                            <span>Communication & marketing</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-orange-400 mt-1.5">•</span>
+                            <span>Direction & pilotage</span>
+                        </li>
+                    </ul>
+                </div>
 
-            <!-- Équipes techniques -->
-            <div class="bg-white p-8 rounded-xl border border-gray-200">
-                <h3 class="text-2xl font-bold mb-6 text-orange-400">Équipes techniques</h3>
-                <ul class="space-y-3 text-gray-700">
-                    <li class="flex items-start">
-                        <span class="text-orange-400 mr-3 mt-1">•</span>
-                        <span>Régie son & lumière</span>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-orange-400 mr-3 mt-1">•</span>
-                        <span>Montage & démontage</span>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-orange-400 mr-3 mt-1">•</span>
-                        <span>Accueil artistes</span>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-orange-400 mr-3 mt-1">•</span>
-                        <span>Sécurité & premiers secours</span>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-orange-400 mr-3 mt-1">•</span>
-                        <span>Décoration & aménagement</span>
-                    </li>
-                </ul>
+                <!-- Équipes techniques -->
+                <div class="bg-gray-50 p-8 rounded-2xl">
+                    <h3 class="text-xl font-bold mb-6 text-gray-900">Équipes techniques</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start gap-3">
+                            <span class="text-orange-400 mt-1.5">•</span>
+                            <span>Décoration & aménagement</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-orange-400 mt-1.5">•</span>
+                            <span>Sécurité & premiers secours</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-orange-400 mt-1.5">•</span>
+                            <span>Accueil artistes</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-orange-400 mt-1.5">•</span>
+                            <span>Montage & démontage</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-orange-400 mt-1.5">•</span>
+                            <span>Régie son & lumière</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -125,57 +127,65 @@ import Layout from '../layouts/Layout.astro';
     <!-- SECTION CTA REJOIGNEZ-NOUS -->
     <section class="w-full py-16 px-4 text-white bg-orange-400">
         <div class="max-w-2xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-6">Rejoignez-nous !</h2>
-            <p class="text-lg mb-8">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Rejoignez-nous !</h2>
+            <p class="text-lg mb-8 text-white/90">
                 Vous souhaitez participer à l'aventure ? Contactez-nous pour découvrir les opportunités de bénévolat et d'engagement au sein de notre équipe.
             </p>
-            <a href="/contact" class="inline-block bg-white px-8 py-3 rounded-full font-bold text-orange-400 hover:opacity-90 transition">
+            <a href="/contact" class="inline-block bg-white px-8 py-3 rounded-full font-bold text-orange-400 hover:bg-gray-100 transition-colors">
                 Nous contacter
             </a>
         </div>
     </section>
 
     <!-- SECTION NOS VALEURS -->
-    <section class="w-full py-16 px-4" style="background-color: #FFFBF0">
-        <div class="max-w-6xl mx-auto">
-            <div class="flex items-center gap-3 mb-12">
-                <span class="w-6 h-6 rounded-full bg-orange-400"></span>
-                <h2 class="text-3xl font-bold">Nos valeurs</h2>
+    <section class="w-full py-16 px-4 bg-[#FFFBF0]">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex items-center gap-3 mb-10">
+                <span class="w-4 h-4 rounded-full bg-orange-400"></span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Nos valeurs</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Écoresponsabilité -->
-                <article class="bg-white p-8 rounded-xl border border-gray-100">
-                    <span class="text-4xl block mb-4">🌱</span>
-                    <h3 class="text-xl font-bold mb-3">Écoresponsabilité</h3>
-                    <p class="text-gray-700">
+                <article class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+                    <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4">
+                        <img src="/icones/eco.svg" alt="Écoresponsabilité" class="w-6 h-6">
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Écoresponsabilité</h3>
+                    <p class="text-gray-600 leading-relaxed">
                         Réduction des déchets, utilisation de matériaux durables, billets zéros. Nous nous engageons pour un festival à impact environnemental minimal.
                     </p>
                 </article>
 
                 <!-- Accessibilité -->
-                <article class="bg-white p-8 rounded-xl border border-gray-100">
-                    <span class="text-4xl block mb-4">♿</span>
-                    <h3 class="text-xl font-bold mb-3">Accessibilité</h3>
-                    <p class="text-gray-700">
-                        Un festival gratuit et ouvert à tous, avec des espaces accessibles aux personnes en situation de handicap. Nos programmes prioritisent l'inclusion.
+                <article class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                        <img src="/icones/accessibilité.svg" alt="Accessibilité" class="w-6 h-6">
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Accessibilité</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Un festival gratuit et ouvert à tous, avec des espaces accessibles aux personnes en situation de handicap. Nos programmes priorisent l'inclusion.
                     </p>
                 </article>
 
                 <!-- Soutien aux artistes locaux -->
-                <article class="bg-white p-8 rounded-xl border border-gray-100">
-                    <span class="text-4xl block mb-4">🎵</span>
-                    <h3 class="text-xl font-bold mb-3">Soutien aux artistes locaux</h3>
-                    <p class="text-gray-700">
+                <article class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+                    <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mb-4">
+                        <img src="/icones/music.svg" alt="Musique" class="w-6 h-6">
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Soutien aux artistes locaux</h3>
+                    <p class="text-gray-600 leading-relaxed">
                         Promotion des talents régionaux du jazz, fanfares et musiques de rue. Nous valorisons le patrimoine musical de notre région.
                     </p>
                 </article>
 
                 <!-- Convivialité -->
-                <article class="bg-white p-8 rounded-xl border border-gray-100">
-                    <span class="text-4xl block mb-4">❤️</span>
-                    <h3 class="text-xl font-bold mb-3">Convivialité</h3>
-                    <p class="text-gray-700">
+                <article class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
+                    <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4">
+                        <img src="/icones/love.svg" alt="Convivialité" class="w-6 h-6">
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">Convivialité</h3>
+                    <p class="text-gray-600 leading-relaxed">
                         Un esprit de partage et d'échanges dans une atmosphère chaleureuse et bienveillante pour tous les publics.
                     </p>
                 </article>
@@ -184,18 +194,20 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <!-- SECTION ÉDITION 2025 -->
-    <section class="w-full py-16 px-4 bg-white border-t-4 border-orange-400">
+    <section class="w-full py-16 px-4 bg-white">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold mb-8">Édition 2025 : "Retour aux sources"</h2>
+            <div class="border-l-4 border-orange-400 pl-6">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-gray-900">Édition 2025 : "Retour aux sources"</h2>
 
-            <div class="space-y-6 text-gray-700">
-                <p class="text-lg leading-relaxed">
-                    Pour cette édition, nous revenons à l'essence même de La Fanfa'Comtoise : célébrer l'énergie des rues, les traditions musicales régionales et la passion des musiciens qui façonnent son âme.
-                </p>
+                <div class="space-y-4 text-gray-700">
+                    <p class="text-base md:text-lg leading-relaxed">
+                        Pour cette édition, nous revenons à l'essence même de La Fanfa'Comtoise : célébrer l'énergie des rues, les traditions musicales régionales et la passion des musiciens qui façonnent son âme.
+                    </p>
 
-                <p class="text-lg leading-relaxed">
-                    Un programme riche en émotions, avec des artistes qui reprendront les valeurs fondatrices de notre festival : authenticité, convivialité et engagement pour une culture durable et accessible.
-                </p>
+                    <p class="text-base md:text-lg leading-relaxed">
+                        Un programme riche en émotions, avec des artistes qui reprendront les valeurs fondatrices de notre festival : authenticité, convivialité et engagement pour une culture durable et accessible.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
