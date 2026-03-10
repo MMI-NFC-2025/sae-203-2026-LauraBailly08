@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
 
-import netlify from '@astrojs/netlify';
+import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
@@ -13,7 +13,5 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
-  adapter: netlify({
-    imageCDN: false,
-  }),
+  adapter: vercel(),
 });
