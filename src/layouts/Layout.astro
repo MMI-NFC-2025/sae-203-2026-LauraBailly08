@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
-import '@fontsource-variable/inter';
 import Header from '../component/header.astro';
+import Footer from '../component/footer.astro';
 ---
 
 <!doctype html>
@@ -15,6 +15,7 @@ import Header from '../component/header.astro';
 		<meta name="description" content="Festival gratuit et écologique à Montbéliard - Jazz, Fanfares & Musiques de rue" />
 	</head>
 	<body class="bg-white">
+		<!-- Header Component -->
 		<Header />
 
 		<!-- Main Content -->
@@ -22,45 +23,8 @@ import Header from '../component/header.astro';
 			<slot />
 		</main>
 
-		<!-- Footer -->
-		<footer class="bg-gray-100">
-			<div class="max-w-6xl mx-auto px-4 py-12">
-				<div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
-					<div>
-						<h3 class="font-bold text-lg mb-4">Navigation</h3>
-						<ul class="space-y-2 text-sm">
-							<li><a href="/" class="hover:text-orange-400 transition">Accueil</a></li>
-							<li><a href="#" class="hover:text-orange-400 transition">Le Festival</a></li>
-							<li><a href="#" class="hover:text-orange-400 transition">Artistes</a></li>
-							<li><a href="#" class="hover:text-orange-400 transition">Scènes</a></li>
-							<li><a href="#" class="hover:text-orange-400 transition">Contact</a></li>
-						</ul>
-					</div>
-					<div class="hidden md:block">
-					</div>
-					<div>
-						<h3 class="font-bold text-lg mb-4">Contact</h3>
-						<p class="text-sm mb-2">📍 Place Saint-Martin</p>
-						<p class="text-sm mb-2">25200 Montbéliard</p>
-						<p class="text-sm mb-2">📧 contact@lafetecomtoise.fr</p>
-						<p class="text-sm">☎️ 03 81 91 54 56</p>
-					</div>
-					<div>
-						<h3 class="font-bold text-lg mb-4">Suivez-nous</h3>
-						<div class="flex gap-4">
-							<a href="#" class="text-2xl hover:text-orange-400 transition">📘</a>
-							<a href="#" class="text-2xl hover:text-orange-400 transition">📷</a>
-							<a href="#" class="text-2xl hover:text-orange-400 transition">🐦</a>
-						</div>
-					</div>
-				</div>
-				<hr class="border-gray-300 mb-6" />
-				<p class="text-center text-sm text-gray-600">
-					© 2025 La Fête Comtoise - Tous droits réservés
-				</p>
-			</div>
-		</footer>
+		<!-- Footer Component -->
+		<Footer />
 	</body>
 </html>
-
 

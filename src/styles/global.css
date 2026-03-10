@@ -9,6 +9,10 @@
     /* #FF9500 */
     --color-secondary-dark: oklch(0.8363 0.1399 128.97);
     /* #884D00 */
+    --color-green-partners: #ADDB75;
+    /* Vert des partenaires */
+    --color-green-footer: #C8D97E;
+    /* Vert du footer */
 
 
     --font-family: 'Inter', sans-serif;
