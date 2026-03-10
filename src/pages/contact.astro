@@ -1,0 +1,146 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <!-- Page Header -->
+  <section class="py-20 px-4 md:px-6 text-center bg-gray-50">
+    <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-4">Contactez-nous</h1>
+    <p class="text-xl text-gray-600 max-w-2xl mx-auto">Une question, une suggestion ou envie de devenir partenaire ? N'hésitez pas à nous écrire !</p>
+  </section>
+
+  <!-- Contact Info Section -->
+  <section class="max-w-6xl mx-auto px-4 py-16 md:py-24">
+    <h2 class="text-4xl font-bold text-gray-900 mb-12 text-center">Nos coordonnées</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Email -->
+      <div class="bg-white p-8 rounded-lg shadow-md">
+        <div class="flex items-start gap-4 mb-4">
+          <img src="/icones/mail.svg" alt="Email" class="w-8 h-8 shrink-0">
+          <h3 class="text-xl font-bold text-gray-900">Email</h3>
+        </div>
+        <p class="text-gray-600">
+          <a href="mailto:contact@fanfacomtoise.fr" class="hover:opacity-80 transition font-semibold" style="color: var(--color-primary);">contact@fanfacomtoise.fr</a>
+        </p>
+      </div>
+
+      <!-- Phone -->
+      <div class="bg-white p-8 rounded-lg shadow-md">
+        <div class="flex items-start gap-4 mb-4">
+          <img src="/icones/call.svg" alt="Téléphone" class="w-8 h-8 shrink-0">
+          <h3 class="text-xl font-bold text-gray-900">Téléphone</h3>
+        </div>
+        <p class="text-gray-600">
+          <a href="tel:+33381123456" class="hover:opacity-80 transition font-semibold" style="color: var(--color-primary);">03 81 12 34 56</a><br>
+          <span class="text-sm text-gray-500 block mt-2">Du lundi au vendredi, 9h-18h</span>
+        </p>
+      </div>
+
+      <!-- Address -->
+      <div class="bg-white p-8 rounded-lg shadow-md">
+        <div class="flex items-start gap-4 mb-4">
+          <img src="/icones/position.svg" alt="Adresse" class="w-8 h-8 shrink-0">
+          <h3 class="text-xl font-bold text-gray-900">Adresse</h3>
+        </div>
+        <p class="text-gray-600 text-sm">
+          Association La Fanfa'Comtoise<br>
+          Place Saint-Martin<br>
+          25200 Montbéliard<br>
+          France
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join Team Section -->
+  <section class="bg-gray-50 py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <div class="flex justify-center mb-6">
+        <img src="/icones/love.svg" alt="Cœur" class="w-12 h-12">
+      </div>
+      <h2 class="text-4xl font-bold text-gray-900 mb-4">Rejoignez l'équipe</h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">Vous souhaitez devenir bénévole pour le festival ? Contactez-nous en précisant votre disponibilité dans le formulaire ci-dessous.</p>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="max-w-2xl mx-auto px-4 py-16 md:py-24">
+    <h2 class="text-4xl font-bold text-gray-900 mb-12 text-center">Envoyez-nous un message</h2>
+    
+    <form class="space-y-6" method="POST" action="#" novalidate>
+      <!-- Name -->
+      <div>
+        <label for="name" class="block text-lg font-semibold text-gray-900 mb-2">
+          Nom complet <span style="color: var(--color-primary);">*</span>
+        </label>
+        <input 
+          type="text" 
+          id="name" 
+          name="name" 
+          class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-opacity-0 transition" 
+          placeholder="Votre nom"
+          style="focus:border-color: var(--color-primary);"
+          required
+        >
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-lg font-semibold text-gray-900 mb-2">
+          Email <span style="color: var(--color-primary);">*</span>
+        </label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none transition" 
+          placeholder="votre@email.fr"
+          required
+        >
+      </div>
+
+      <!-- Subject -->
+      <div>
+        <label for="subject" class="block text-lg font-semibold text-gray-900 mb-2">
+          Sujet <span style="color: var(--color-primary);">*</span>
+        </label>
+        <input 
+          type="text" 
+          id="subject" 
+          name="subject" 
+          class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none transition" 
+          placeholder="Sélectionnez un sujet"
+          required
+        >
+      </div>
+
+      <!-- Message -->
+      <div>
+        <label for="message" class="block text-lg font-semibold text-gray-900 mb-2">
+          Message <span style="color: var(--color-primary);">*</span>
+        </label>
+        <textarea 
+          id="message" 
+          name="message" 
+          class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none transition resize-none"
+          placeholder="Votre message..."
+          rows="6"
+          required
+        ></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <button 
+        type="submit"
+        class="w-full flex items-center justify-center gap-3 text-white px-8 py-4 rounded-lg font-semibold hover:opacity-90 transition"
+        style="background-color: var(--color-primary);"
+      >
+        <img src="/icones/send.svg" alt="Envoyer" class="w-5 h-5">
+        Envoyer le message
+      </button>
+    </form>
+
+    <p class="text-center text-sm text-gray-500 mt-8">Les transports en commun ou en voiture nous facilitent les déplacements à différentes raisons à votre demande.</p>
+  </section>
+</Layout>
