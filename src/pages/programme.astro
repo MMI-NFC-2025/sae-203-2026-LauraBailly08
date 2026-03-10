@@ -1,0 +1,294 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+    <!-- PAGE HEADER AVEC IMAGE -->
+    <section class="relative w-full h-96 md:h-screen overflow-hidden">
+        <img src="/images/images/programme.avif" alt="Programme du festival" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="relative h-full flex flex-col items-center justify-center text-center px-4">
+            <div class="flex items-center gap-2 mb-4">
+                <img src="/icones/calendrier.svg" alt="Calendrier" class="w-6 h-6">
+                <span class="text-white font-bold">27-29 juin 2025</span>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-bold text-white mb-4">Programme</h1>
+            <p class="text-xl md:text-2xl text-white max-w-3xl">3 jours de concerts gratuits dans le centre-ville de Montbéliard</p>
+        </div>
+    </section>
+
+    <!-- FORMULAIRE DE RECHERCHE -->
+    <section class="w-full py-16 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex items-center gap-2 mb-8">
+                <img src="/icones/filtre.svg" alt="Recherche" class="w-6 h-6">
+                <h2 class="text-3xl font-bold text-gray-900">Trouvez votre concert</h2>
+            </div>
+
+            <form class="bg-gray-50 p-8 rounded-lg border border-gray-200">
+                <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6 mb-6">
+                    <!-- Recherche texte -->
+                    <div>
+                        <label for="search-artist" class="block font-semibold text-gray-700 mb-2">Artiste ou mot-clé</label>
+                        <div class="relative">
+                            <img src="/icones/search.svg" alt="Recherche" class="absolute left-3 top-3 w-5 h-5 text-gray-400">
+                            <input 
+                                type="text" 
+                                id="search-artist" 
+                                name="artist" 
+                                class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2" 
+                                style="--tw-ring-color: var(--color-primary)"
+                                placeholder="Lazy Birds, Jazz..."
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Jour -->
+                    <div>
+                        <label for="filter-day" class="block font-semibold text-gray-700 mb-2">Jour</label>
+                        <select id="filter-day" name="day" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2" style="--tw-ring-color: var(--color-primary)">
+                            <option value="">Tous les jours</option>
+                            <option value="vendredi">Vendredi 27 juin</option>
+                            <option value="samedi">Samedi 28 juin</option>
+                            <option value="dimanche">Dimanche 29 juin</option>
+                        </select>
+                    </div>
+
+                    <!-- Genre -->
+                    <div>
+                        <label for="filter-genre" class="block font-semibold text-gray-700 mb-2">Genre</label>
+                        <select id="filter-genre" name="genre" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2" style="--tw-ring-color: var(--color-primary)">
+                            <option value="">Tous les genres</option>
+                            <option value="jazz">Jazz</option>
+                            <option value="fanfare">Fanfare</option>
+                            <option value="street">Musique de rue</option>
+                        </select>
+                    </div>
+
+                    <!-- Scène -->
+                    <div>
+                        <label for="filter-scene" class="block font-semibold text-gray-700 mb-2">Scène</label>
+                        <select id="filter-scene" name="scene" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2" style="--tw-ring-color: var(--color-primary)">
+                            <option value="">Toutes les scènes</option>
+                            <option value="saint-martin">Place Saint-Martin</option>
+                            <option value="halles">Scène des Halles</option>
+                            <option value="parc">Scène du Parc</option>
+                        </select>
+                    </div>
+
+                    <!-- Heure -->
+                    <div>
+                        <label for="filter-time" class="block font-semibold text-gray-700 mb-2">Heure</label>
+                        <input 
+                            type="time" 
+                            id="filter-time" 
+                            name="time" 
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2"
+                            style="--tw-ring-color: var(--color-primary)"
+                        >
+                    </div>
+                </div>
+
+                <!-- Boutons -->
+                <div class="flex flex-wrap gap-3">
+                    <button type="submit" class="flex items-center gap-2 px-6 py-2 text-white rounded-lg font-bold transition hover:opacity-90" style="background-color: var(--color-primary)">
+                        <img src="/icones/search.svg" alt="Rechercher" class="w-4 h-4">
+                        Rechercher
+                    </button>
+                    <button type="reset" class="flex items-center gap-2 px-6 py-2 border border-gray-400 text-gray-700 rounded-lg font-bold transition hover:bg-gray-50">
+                        <img src="/icones/reset.svg" alt="Réinitialiser" class="w-4 h-4">
+                        Réinitialiser
+                    </button>
+                    <a href="/programme.pdf" class="flex items-center gap-2 px-6 py-2 border-2 rounded-lg font-bold transition hover:opacity-90" style="border-color: var(--color-primary); color: var(--color-primary)">
+                        <img src="/icones/download.svg" alt="Télécharger" class="w-4 h-4">
+                        Programme PDF
+                    </a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- PROGRAMME PAR JOUR -->
+    <section class="w-full py-16 px-4 bg-gray-50">
+        <div class="max-w-6xl mx-auto space-y-12">
+            <!-- VENDREDI 27 JUIN -->
+            <div class="bg-white rounded-lg overflow-hidden border border-gray-200">
+                <div class="flex items-center gap-4 p-6 border-b-4" style="border-color: var(--color-primary)">
+                    <img src="/icones/calendrier.svg" alt="Date" class="w-6 h-6">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900">Vendredi</h2>
+                        <p class="text-gray-600">27 juin 2025</p>
+                    </div>
+                </div>
+
+                <div class="divide-y">
+                    <!-- Concert 1 -->
+                    <article class="p-6 flex items-start gap-6 hover:bg-gray-50 transition">
+                        <div class="flex flex-col items-center gap-2 min-w-fit">
+                            <img src="/icones/horaire.svg" alt="Heure" class="w-5 h-5">
+                            <span class="font-bold text-lg" style="color: var(--color-primary)">17:00</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Les Cuivres de la Comtoise</h3>
+                            <div class="flex flex-wrap items-center gap-4">
+                                <span class="flex items-center gap-2 text-gray-600">
+                                    <img src="/icones/position.svg" alt="Lieu" class="w-4 h-4">
+                                    Scène des Halles
+                                </span>
+                                <span class="px-3 py-1 rounded-full text-white text-sm font-bold" style="background-color: #FF6B6B">Fanfare</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Concert 2 -->
+                    <article class="p-6 flex items-start gap-6 hover:bg-gray-50 transition">
+                        <div class="flex flex-col items-center gap-2 min-w-fit">
+                            <img src="/icones/horaire.svg" alt="Heure" class="w-5 h-5">
+                            <span class="font-bold text-lg" style="color: var(--color-primary)">20:00</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Lazy Birds</h3>
+                            <div class="flex flex-wrap items-center gap-4">
+                                <span class="flex items-center gap-2 text-gray-600">
+                                    <img src="/icones/position.svg" alt="Lieu" class="w-4 h-4">
+                                    Place Saint-Martin
+                                </span>
+                                <span class="px-3 py-1 rounded-full text-white text-sm font-bold" style="background-color: var(--color-primary)">Jazz</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- SAMEDI 28 JUIN -->
+            <div class="bg-white rounded-lg overflow-hidden border border-gray-200">
+                <div class="flex items-center gap-4 p-6 border-b-4" style="border-color: var(--color-primary)">
+                    <img src="/icones/calendrier.svg" alt="Date" class="w-6 h-6">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900">Samedi</h2>
+                        <p class="text-gray-600">28 juin 2025</p>
+                    </div>
+                </div>
+
+                <div class="divide-y">
+                    <!-- Concert 1 -->
+                    <article class="p-6 flex items-start gap-6 hover:bg-gray-50 transition">
+                        <div class="flex flex-col items-center gap-2 min-w-fit">
+                            <img src="/icones/horaire.svg" alt="Heure" class="w-5 h-5">
+                            <span class="font-bold text-lg" style="color: var(--color-primary)">16:00</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">What She Says</h3>
+                            <div class="flex flex-wrap items-center gap-4">
+                                <span class="flex items-center gap-2 text-gray-600">
+                                    <img src="/icones/position.svg" alt="Lieu" class="w-4 h-4">
+                                    Place Saint-Martin
+                                </span>
+                                <span class="px-3 py-1 rounded-full text-white text-sm font-bold" style="background-color: #4ECDC4">Musique de rue</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Concert 2 -->
+                    <article class="p-6 flex items-start gap-6 hover:bg-gray-50 transition">
+                        <div class="flex flex-col items-center gap-2 min-w-fit">
+                            <img src="/icones/horaire.svg" alt="Heure" class="w-5 h-5">
+                            <span class="font-bold text-lg" style="color: var(--color-primary)">18:30</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">FMR Orchestra</h3>
+                            <div class="flex flex-wrap items-center gap-4">
+                                <span class="flex items-center gap-2 text-gray-600">
+                                    <img src="/icones/position.svg" alt="Lieu" class="w-4 h-4">
+                                    Scène des Halles
+                                </span>
+                                <span class="px-3 py-1 rounded-full text-white text-sm font-bold" style="background-color: #FF6B6B">Fanfare</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- DIMANCHE 29 JUIN -->
+            <div class="bg-white rounded-lg overflow-hidden border border-gray-200">
+                <div class="flex items-center gap-4 p-6 border-b-4" style="border-color: var(--color-primary)">
+                    <img src="/icones/calendrier.svg" alt="Date" class="w-6 h-6">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900">Dimanche</h2>
+                        <p class="text-gray-600">29 juin 2025</p>
+                    </div>
+                </div>
+
+                <div class="divide-y">
+                    <!-- Concert 1 -->
+                    <article class="p-6 flex items-start gap-6 hover:bg-gray-50 transition">
+                        <div class="flex flex-col items-center gap-2 min-w-fit">
+                            <img src="/icones/horaire.svg" alt="Heure" class="w-5 h-5">
+                            <span class="font-bold text-lg" style="color: var(--color-primary)">15:00</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Le Collectif Jazz 25</h3>
+                            <div class="flex flex-wrap items-center gap-4">
+                                <span class="flex items-center gap-2 text-gray-600">
+                                    <img src="/icones/position.svg" alt="Lieu" class="w-4 h-4">
+                                    Scène du Parc
+                                </span>
+                                <span class="px-3 py-1 rounded-full text-white text-sm font-bold" style="background-color: var(--color-primary)">Jazz</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Concert 2 -->
+                    <article class="p-6 flex items-start gap-6 hover:bg-gray-50 transition">
+                        <div class="flex flex-col items-center gap-2 min-w-fit">
+                            <img src="/icones/horaire.svg" alt="Heure" class="w-5 h-5">
+                            <span class="font-bold text-lg" style="color: var(--color-primary)">21:00</span>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Black Chicks</h3>
+                            <div class="flex flex-wrap items-center gap-4">
+                                <span class="flex items-center gap-2 text-gray-600">
+                                    <img src="/icones/position.svg" alt="Lieu" class="w-4 h-4">
+                                    Place Saint-Martin
+                                </span>
+                                <span class="px-3 py-1 rounded-full text-white text-sm font-bold" style="background-color: var(--color-primary)">Jazz/Soul</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFOS PRATIQUES -->
+    <section class="w-full py-16 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <!-- Entrée gratuite -->
+                <div class="text-center">
+                    <img src="/icones/gratuit.svg" alt="Gratuit" class="w-12 h-12 mx-auto mb-4">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Entrée gratuite</h3>
+                    <p class="text-gray-600">Tous les concerts sont en accès libre</p>
+                </div>
+
+                <!-- Restauration -->
+                <div class="text-center">
+                    <img src="/icones/restauration.svg" alt="Restauration" class="w-12 h-12 mx-auto mb-4">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Restauration</h3>
+                    <p class="text-gray-600">Stands locaux et bio sur place</p>
+                </div>
+
+                <!-- Accessibilité -->
+                <div class="text-center">
+                    <img src="/icones/accessibilité.svg" alt="Accessibilité" class="w-12 h-12 mx-auto mb-4">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Accessibilité</h3>
+                    <p class="text-gray-600">Toutes les scènes sont accessibles PMR</p>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="/infos-pratiques" class="inline-block px-8 py-3 rounded-full font-bold text-white transition hover:opacity-90" style="background-color: var(--color-primary)">Voir toutes les infos pratiques</a>
+            </div>
+        </div>
+    </section>
+</Layout>
