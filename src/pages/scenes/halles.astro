@@ -1,0 +1,154 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout>
+  <!-- Back Link -->
+  <div class="max-w-6xl mx-auto px-4 py-8">
+    <a href="/scènes" class="inline-flex items-center gap-2 font-semibold mb-8 hover:opacity-80 transition" style="color: var(--color-primary);">
+      <img src="/icones/flèche-gauche-carousel.svg" alt="Retour" class="w-5 h-5">
+      Retour aux scènes
+    </a>
+  </div>
+
+  <!-- Scene Hero Section -->
+  <section class="relative w-full h-96 md:h-500px overflow-hidden">
+    <img src="/images/images/musique-de-rue.avif" alt="Scène des Halles" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-black/40 flex flex-col justify-end p-8 md:p-16">
+      <span class="inline-block text-white px-4 py-2 rounded-full text-sm font-semibold mb-4 w-fit" style="background-color: var(--color-primary);">Scène 2</span>
+      <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">Scène des Halles</h1>
+      <div class="space-y-3">
+        <div class="flex items-center gap-3 text-white">
+          <img src="/icones/position.svg" alt="Localisation" class="w-5 h-5">
+          <span>Place des Halles, Montbéliard</span>
+        </div>
+        <div class="flex items-center gap-3 text-white">
+          <img src="/icones/public.svg" alt="Capacité" class="w-5 h-5">
+          <span>Capacité : 1200 personnes</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Scene -->
+  <section class="max-w-6xl mx-auto px-4 py-16 md:py-24">
+    <div class="flex items-start gap-4 mb-8">
+      <span class="text-4xl pt-2" style="color: var(--color-primary);">●</span>
+      <div>
+        <h2 class="text-4xl font-bold text-gray-900">À propos de cette scène</h2>
+      </div>
+    </div>
+    <p class="text-lg text-gray-600 leading-relaxed max-w-3xl">Scène couverte offrant une acoustique exceptionnelle, idéale pour les performances intimistes et les fanfares. Ambiance conviviale garantie. Espace protégé pour profiter confortablement de la musique. La Scène des Halles incarne l'esprit festif et participatif du festival, offrant un cadre privilégié aux artistes et aux spectateurs.</p>
+  </section>
+
+  <!-- Scene Features -->
+  <section class="bg-gray-50 py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-gray-900 mb-12">Caractéristiques de la scène</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Feature 1 -->
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <div class="flex items-start gap-4 mb-4">
+            <img src="/icones/music.svg" alt="Acoustique" class="w-8 h-8 shrink-0">
+            <h3 class="text-xl font-bold text-gray-900">Acoustique exceptionnelle</h3>
+          </div>
+          <p class="text-gray-600 text-sm">Bénéficie d'une acoustique optimale grâce à sa structure couverte unique et ses proportions idéales.</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <div class="flex items-start gap-4 mb-4">
+            <img src="/icones/accessibilité.svg" alt="Accessibilité" class="w-8 h-8 shrink-0">
+            <h3 class="text-xl font-bold text-gray-900">Accessibilité PMR</h3>
+          </div>
+          <p class="text-gray-600 text-sm">Entièrement accessible aux personnes à mobilité réduite. Formations libres d'accès.</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <div class="flex items-start gap-4 mb-4">
+            <img src="/icones/restauration.svg" alt="Restauration" class="w-8 h-8 shrink-0">
+            <h3 class="text-xl font-bold text-gray-900">Points de restauration</h3>
+          </div>
+          <p class="text-gray-600 text-sm">Stands de restauration locale à proximité. Espace couvert pour manger confortablement.</p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <div class="flex items-start gap-4 mb-4">
+            <img src="/icones/repos.svg" alt="Confort" class="w-8 h-8 shrink-0">
+            <h3 class="text-xl font-bold text-gray-900">Zones de repos</h3>
+          </div>
+          <p class="text-gray-600 text-sm">Espaces aménagés et couverts pour se détendre entre les concerts en tout confort.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scene Artists -->
+  <section class="max-w-6xl mx-auto px-4 py-16 md:py-24">
+    <h2 class="text-4xl font-bold text-gray-900 mb-3">Artistes à cette scène</h2>
+    <p class="text-gray-600 text-lg mb-12">Découvrez les performances programmées à la Scène des Halles</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      <!-- Artist 1 -->
+      <article class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+        <div class="relative overflow-hidden">
+          <img src="/images/images/les-artistes.avif" alt="Artiste" class="w-full h-48 object-cover">
+          <span class="absolute top-4 right-4 px-4 py-2 rounded-full text-sm font-semibold text-white" style="background-color: #FF6B6B;">Fanfare</span>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Fanfare de Montbéliard</h3>
+          <div class="flex items-center gap-2 text-gray-600 mb-6 text-sm">
+            <img src="/icones/calendrier.svg" alt="Date" class="w-4 h-4">
+            <span>28 juin 2025 à 19:00</span>
+          </div>
+          <a href="/artistes" class="inline-block font-semibold hover:opacity-80 transition" style="color: var(--color-primary);">En savoir plus</a>
+        </div>
+      </article>
+
+      <!-- Artist 2 -->
+      <article class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+        <div class="relative overflow-hidden">
+          <img src="/images/images/programme.avif" alt="Artiste" class="w-full h-48 object-cover">
+          <span class="absolute top-4 right-4 px-4 py-2 rounded-full text-sm font-semibold text-white" style="background-color: var(--color-primary);">Jazz</span>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Jazz Ensemble</h3>
+          <div class="flex items-center gap-2 text-gray-600 mb-6 text-sm">
+            <img src="/icones/calendrier.svg" alt="Date" class="w-4 h-4">
+            <span>29 juin 2025 à 17:00</span>
+          </div>
+          <a href="/artistes" class="inline-block font-semibold hover:opacity-80 transition" style="color: var(--color-primary);">En savoir plus</a>
+        </div>
+      </article>
+    </div>
+
+    <a href="/programme" class="inline-block text-white px-8 py-4 rounded-lg font-semibold hover:opacity-90 transition" style="background-color: var(--color-primary);">Voir le programme complet</a>
+  </section>
+
+  <!-- Practical Info -->
+  <section class="bg-gray-50 py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-gray-900 mb-12">Informations pratiques</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <h3 class="text-lg font-bold text-gray-900 mb-4">Localisation</h3>
+          <p class="text-gray-600 text-sm">Place des Halles<br>25200 Montbéliard</p>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <h3 class="text-lg font-bold text-gray-900 mb-4">Capacité</h3>
+          <p class="text-gray-600 text-sm">1200 personnes</p>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <h3 class="text-lg font-bold text-gray-900 mb-4">Accès</h3>
+          <p class="text-gray-600 text-sm">Libre et gratuit<br>Accessible PMR</p>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-md">
+          <h3 class="text-lg font-bold text-gray-900 mb-4">Parking</h3>
+          <p class="text-gray-600 text-sm">Stationnement proche<br>À proximité des Halles</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

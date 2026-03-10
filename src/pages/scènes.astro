@@ -1,0 +1,215 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <!-- Page Header -->
+  <section class="py-20 px-4 md:px-6 text-center bg-gray-50">
+    <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-4">Les Scènes</h1>
+    <p class="text-xl text-gray-600 max-w-2xl mx-auto">3 scènes uniques au cœur du centre-ville historique de Montbéliard</p>
+  </section>
+
+  <!-- Scenes Section -->
+  <section class="max-w-6xl mx-auto px-4 py-16 md:py-24">
+    <h2 class="text-4xl font-bold text-gray-900 mb-12 text-center">Les Scènes du Festival</h2>
+    
+    <div class="space-y-12">
+      <!-- Scène 1: Place Saint-Martin -->
+      <article class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+        <div class="md:grid md:grid-cols-2">
+          <div class="overflow-hidden">
+            <img src="/images/images/hero-du-site.avif" alt="Scène de la Place Saint-Martin avec public" class="w-full h-80 md:h-96 object-cover">
+          </div>
+          <div class="p-8 md:p-10 flex flex-col justify-center">
+            <div class="mb-4">
+              <span class="inline-flex items-center gap-2 font-semibold mb-2" style="color: var(--color-primary);">
+                <img src="/icones/position.svg" alt="Scène" class="w-5 h-5">
+                Scène 1
+              </span>
+              <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Place Saint-Martin</h2>
+            </div>
+            <p class="text-gray-600 mb-6 text-lg">Scène principale du festival offrant une vue dégagée et une excellente acoustique naturelle. Idéale pour les performances de jazz intimistes et les fanfares en plein air. Ambiance festive et conviviale.</p>
+            
+            <div class="space-y-3 mb-8">
+              <div class="flex items-center gap-3 text-gray-700">
+                <img src="/icones/position.svg" alt="Localisation" class="w-5 h-5 shrink-0">
+                <span>Place Saint-Martin</span>
+              </div>
+              <div class="flex items-center gap-3 text-gray-700">
+                <img src="/icones/public.svg" alt="Capacité" class="w-5 h-5 shrink-0">
+                <span>Capacité : 1500 personnes</span>
+              </div>
+            </div>
+            
+            <a href="/scenes/place-saint-martin" class="inline-flex items-center gap-2 text-white px-6 py-3 rounded-lg font-semibold w-fit hover:opacity-90 transition" style="background-color: var(--color-primary);">
+              En savoir plus
+              <img src="/icones/flèche-droite-carousel.svg" alt="Flèche" class="w-5 h-5">
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Scène 2: Scène des Halles -->
+      <article class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+        <div class="md:grid md:grid-cols-2">
+          <div class="overflow-hidden md:order-2">
+            <img src="/images/images/musique-de-rue.avif" alt="Scène des Halles avec public qui danse" class="w-full h-80 md:h-96 object-cover">
+          </div>
+          <div class="p-8 md:p-10 flex flex-col justify-center md:order-1">
+            <div class="mb-4">
+              <span class="inline-flex items-center gap-2 font-semibold mb-2" style="color: var(--color-primary);">
+                <img src="/icones/position.svg" alt="Scène" class="w-5 h-5">
+                Scène 2
+              </span>
+              <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Scène des Halles</h2>
+            </div>
+            <p class="text-gray-600 mb-6 text-lg">Scène couverte offrant une acoustique exceptionnelle, idéale pour les performances intimistes et les fanfares. Ambiance conviviale garantie. Espace protégé du public pour profiter confortablement de la musique.</p>
+            
+            <div class="space-y-3 mb-8">
+              <div class="flex items-center gap-3 text-gray-700">
+                <img src="/icones/position.svg" alt="Localisation" class="w-5 h-5 shrink-0">
+                <span>Place des Halles</span>
+              </div>
+              <div class="flex items-center gap-3 text-gray-700">
+                <img src="/icones/public.svg" alt="Capacité" class="w-5 h-5 shrink-0">
+                <span>Capacité : 1200 personnes</span>
+              </div>
+            </div>
+            
+            <a href="/scenes/halles" class="inline-flex items-center gap-2 text-white px-6 py-3 rounded-lg font-semibold w-fit hover:opacity-90 transition" style="background-color: var(--color-primary);">
+              En savoir plus
+              <img src="/icones/flèche-droite-carousel.svg" alt="Flèche" class="w-5 h-5">
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Scène 3: Scène du Parc -->
+      <article class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+        <div class="md:grid md:grid-cols-2">
+          <div class="overflow-hidden">
+            <img src="/images/images/scène-éco.avif" alt="Scène du Parc en pleine nature avec public" class="w-full h-80 md:h-96 object-cover">
+          </div>
+          <div class="p-8 md:p-10 flex flex-col justify-center">
+            <div class="mb-4">
+              <span class="inline-flex items-center gap-2 font-semibold mb-2" style="color: var(--color-primary);">
+                <img src="/icones/position.svg" alt="Scène" class="w-5 h-5">
+                Scène 3
+              </span>
+              <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Scène du Parc</h2>
+            </div>
+            <p class="text-gray-600 mb-6 text-lg">Scène nichée dans un écrin de verdure, parfaite pour profiter de la musique dans un cadre naturel et écoresponsable. Zone de détente et espace pique-nique à proximité pour un moment de détente entre les concerts.</p>
+            
+            <div class="space-y-3 mb-8">
+              <div class="flex items-center gap-3 text-gray-700">
+                <img src="/icones/position.svg" alt="Localisation" class="w-5 h-5 shrink-0">
+                <span>Parc du Près-la-Rose</span>
+              </div>
+              <div class="flex items-center gap-3 text-gray-700">
+                <img src="/icones/public.svg" alt="Capacité" class="w-5 h-5 shrink-0">
+                <span>Capacité : 800 personnes</span>
+              </div>
+            </div>
+            
+            <a href="/scenes/parc" class="inline-flex items-center gap-2 text-white px-6 py-3 rounded-lg font-semibold w-fit hover:opacity-90 transition" style="background-color: var(--color-primary);">
+              En savoir plus
+              <img src="/icones/flèche-droite-carousel.svg" alt="Flèche" class="w-5 h-5">
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Artists Carousel Section -->
+  <section class="bg-gray-50 py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-4xl font-bold text-gray-900 text-center mb-12">Les artistes du festival</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Artiste 1 -->
+        <article class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
+          <div class="mb-6 flex justify-center">
+            <img src="/icones/music.svg" alt="Icône musique" class="w-12 h-12">
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Les Musiciens de Rue</h3>
+          <p class="text-gray-600 mb-6">Découvrez la magie de la musique acoustique en centre-ville</p>
+          <a href="/artistes" class="inline-block font-semibold hover:opacity-80 transition" style="color: var(--color-primary);">Voir plus →</a>
+        </article>
+
+        <!-- Artiste 2 -->
+        <article class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
+          <div class="mb-6 flex justify-center">
+            <img src="/icones/music.svg" alt="Icône musique" class="w-12 h-12">
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Fanfare Moderne</h3>
+          <p class="text-gray-600 mb-6">L'énergie et la joie de la musique traditionnelle réinventée</p>
+          <a href="/artistes" class="inline-block font-semibold hover:opacity-80 transition" style="color: var(--color-primary);">Voir plus →</a>
+        </article>
+
+        <!-- Artiste 3 -->
+        <article class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
+          <div class="mb-6 flex justify-center">
+            <img src="/icones/music.svg" alt="Icône musique" class="w-12 h-12">
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">Orchestre Symphonique</h3>
+          <p class="text-gray-600 mb-6">Une expérience musicale raffinée et émouvante</p>
+          <a href="/artistes" class="inline-block font-semibold hover:opacity-80 transition" style="color: var(--color-primary);">Voir plus →</a>
+        </article>
+
+        <!-- Artiste 4 -->
+        <article class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition-shadow text-center">
+          <div class="mb-6 flex justify-center">
+            <img src="/icones/music.svg" alt="Icône musique" class="w-12 h-12">
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-3">DJ Live Session</h3>
+          <p class="text-gray-600 mb-6">Danse et électro pour des nuits mémorables</p>
+          <a href="/artistes" class="inline-block font-semibold hover:opacity-80 transition" style="color: var(--color-primary);">Voir plus →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bon à savoir Section -->
+  <section class="max-w-6xl mx-auto px-4 py-16 md:py-24">
+    <h2 class="text-4xl font-bold text-gray-900 text-center mb-12">Bon à savoir</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Acoustique -->
+      <div class="bg-white p-8 rounded-lg shadow-md">
+        <div class="flex items-start gap-4 mb-4">
+          <img src="/icones/music.svg" alt="Acoustique" class="w-8 h-8 shrink-0">
+          <h3 class="text-lg font-bold text-gray-900">Acoustique</h3>
+        </div>
+        <p class="text-gray-600">Toutes nos scènes sont équipées d'une sonorisation professionnelle pour une qualité audio optimale.</p>
+      </div>
+
+      <!-- Accessibilité -->
+      <div class="bg-white p-8 rounded-lg shadow-md">
+        <div class="flex items-start gap-4 mb-4">
+          <img src="/icones/accessibilité.svg" alt="Accessibilité" class="w-8 h-8 shrink-0">
+          <h3 class="text-lg font-bold text-gray-900">Accessibilité</h3>
+        </div>
+        <p class="text-gray-600">Accès PMR sur toutes les scènes. Zones de stationnement réservées accessibles à proximité immédiate.</p>
+      </div>
+
+      <!-- Espaces détente -->
+      <div class="bg-white p-8 rounded-lg shadow-md">
+        <div class="flex items-start gap-4 mb-4">
+          <img src="/icones/camping.svg" alt="Détente" class="w-8 h-8 shrink-0">
+          <h3 class="text-lg font-bold text-gray-900">Espaces détente</h3>
+        </div>
+        <p class="text-gray-600">Des zones de repos aménagées autour de chaque scène ainsi que des espaces pique-nique pour votre confort.</p>
+      </div>
+
+      <!-- Restauration -->
+      <div class="bg-white p-8 rounded-lg shadow-md">
+        <div class="flex items-start gap-4 mb-4">
+          <img src="/icones/restauration.svg" alt="Restauration" class="w-8 h-8 shrink-0">
+          <h3 class="text-lg font-bold text-gray-900">Restauration</h3>
+        </div>
+        <p class="text-gray-600">Stands de restauration locale et bio à proximité de chaque scène pour votre satisfaction.</p>
+      </div>
+    </div>
+  </section>
+</Layout>
