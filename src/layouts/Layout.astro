@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import '@fontsource-variable/inter';
+import Header from '../component/header.astro';
 ---
 
 <!doctype html>
@@ -14,23 +15,7 @@ import '@fontsource-variable/inter';
 		<meta name="description" content="Festival gratuit et écologique à Montbéliard - Jazz, Fanfares & Musiques de rue" />
 	</head>
 	<body class="bg-white">
-		<!-- Header -->
-		<header class="bg-white shadow-sm sticky top-0 z-50">
-			<div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-				<a href="/" class="flex items-center gap-2 font-bold text-lg">
-					<span class="text-2xl">🎭</span>
-					<span>La Fête Comtoise</span>
-				</a>
-				<nav class="hidden md:flex gap-8">
-					<a href="/" class="hover:text-orange-400 transition">Accueil</a>
-					<a href="/artistes" class="hover:text-orange-400 transition">Artistes</a>
-					<a href="/scenes" class="hover:text-orange-400 transition">Scènes</a>
-					<a href="#" class="hover:text-orange-400 transition">Infos pratiques</a>
-					<a href="#" class="hover:text-orange-400 transition">Contact</a>
-				</nav>
-				<button class="md:hidden text-2xl">☰</button>
-			</div>
-		</header>
+		<Header />
 
 		<!-- Main Content -->
 		<main>
