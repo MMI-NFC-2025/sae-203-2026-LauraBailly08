@@ -1,0 +1,165 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact - La Fanfa'Comtoise">
+    <!-- SECTION HERO -->
+    <section class="relative w-full h-64 md:h-80 bg-cover bg-center">
+        <img src="/images/images/hero-du-site.avif" alt="Hero contact" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="relative flex flex-col justify-center items-center h-full px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Contact</h1>
+            <p class="text-xl text-white/90">Une question ? N'hesitez pas a nous contacter</p>
+        </div>
+    </section>
+
+    <!-- SECTION COORDONNEES -->
+    <section class="w-full py-16 px-4 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8">Nos coordonnees</h2>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Email -->
+                <article class="bg-white p-6 rounded-xl border border-gray-200 text-center">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <img src="/icones/mail.svg" alt="" class="w-8 h-8" />
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Email</h3>
+                    <a href="mailto:contact@fanfacomtoise.fr" class="text-orange-500 hover:underline">
+                        contact@fanfacomtoise.fr
+                    </a>
+                </article>
+
+                <!-- Telephone -->
+                <article class="bg-white p-6 rounded-xl border border-gray-200 text-center">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <img src="/icones/call.svg" alt="" class="w-8 h-8" />
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Telephone</h3>
+                    <p class="text-gray-700">03 81 12 34 56</p>
+                    <p class="text-sm text-gray-500 mt-1">Du lundi au vendredi, 9h-18h</p>
+                </article>
+
+                <!-- Adresse -->
+                <article class="bg-white p-6 rounded-xl border border-gray-200 text-center">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <img src="/icones/position.svg" alt="" class="w-8 h-8" />
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Adresse</h3>
+                    <p class="text-gray-700">
+                        Association La Fanfa'Comtoise<br />
+                        Place Saint-Martin<br />
+                        25200 Montbeliard<br />
+                        France
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION BENEVOLES -->
+    <section class="w-full py-16 px-4" style="background-color: #FFFBF0">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-orange-400 text-white p-8 rounded-xl">
+                <h2 class="text-2xl font-bold mb-4">Rejoignez l'equipe</h2>
+                <p class="text-lg">
+                    Vous souhaitez devenir benevole pour le festival ? Contactez-nous en precisant votre disponibilite dans le formulaire ci-dessous.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION FORMULAIRE -->
+    <section class="w-full py-16 px-4 bg-white">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8">Envoyez-nous un message</h2>
+
+            <form class="space-y-6">
+                <!-- Nom complet -->
+                <div>
+                    <label for="name" class="block text-sm font-semibold mb-2">
+                        Nom complet <span class="text-red-500">*</span>
+                    </label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition"
+                        placeholder="Votre nom et prenom"
+                    />
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label for="email" class="block text-sm font-semibold mb-2">
+                        Email <span class="text-red-500">*</span>
+                    </label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition"
+                        placeholder="votre@email.com"
+                    />
+                </div>
+
+                <!-- Sujet -->
+                <div>
+                    <label for="subject" class="block text-sm font-semibold mb-2">
+                        Sujet <span class="text-red-500">*</span>
+                    </label>
+                    <select 
+                        id="subject" 
+                        name="subject" 
+                        required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition bg-white"
+                    >
+                        <option value="" disabled selected>Choisissez un sujet</option>
+                        <option value="info">Demande d'information</option>
+                        <option value="benevole">Devenir benevole</option>
+                        <option value="partenariat">Partenariat</option>
+                        <option value="presse">Presse / Media</option>
+                        <option value="autre">Autre</option>
+                    </select>
+                </div>
+
+                <!-- Message -->
+                <div>
+                    <label for="message" class="block text-sm font-semibold mb-2">
+                        Message <span class="text-red-500">*</span>
+                    </label>
+                    <textarea 
+                        id="message" 
+                        name="message" 
+                        rows="6" 
+                        required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition resize-none"
+                        placeholder="Votre message..."
+                    ></textarea>
+                </div>
+
+                <!-- Bouton submit -->
+                <button 
+                    type="submit" 
+                    class="w-full bg-orange-400 text-white py-4 px-8 rounded-lg font-bold hover:bg-orange-500 transition flex items-center justify-center gap-2"
+                >
+                    <img src="/icones/send.svg" alt="" class="w-5 h-5 brightness-0 invert" />
+                    Envoyer le message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- SECTION INFO SUPPLEMENTAIRE -->
+    <section class="w-full py-12 px-4 bg-gray-100">
+        <div class="max-w-4xl mx-auto text-center">
+            <p class="text-gray-600">
+                Les transports en commun ou en voiture nous facilitent les deplacements. Consultez notre page 
+                <a href="/infos-pratiques" class="text-orange-500 hover:underline font-semibold">Infos Pratiques</a> 
+                pour plus de details.
+            </p>
+        </div>
+    </section>
+</Layout>

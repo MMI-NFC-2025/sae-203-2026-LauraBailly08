@@ -23,41 +23,70 @@ import Header from '../component/header.astro';
 		</main>
 
 		<!-- Footer -->
-		<footer class="bg-gray-100">
+		<footer class="bg-gray-900 text-white">
 			<div class="max-w-6xl mx-auto px-4 py-12">
-				<div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+				<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+					<!-- Logo et description -->
+					<div class="md:col-span-1">
+						<img src="/icones/logo-du-site.svg" alt="Logo La Fanfa'Comtoise" class="h-12 w-auto mb-4 brightness-0 invert" />
+						<p class="text-sm text-gray-400">
+							Festival gratuit et ecoresponsable de jazz, fanfares et musiques de rue a Montbeliard.
+						</p>
+					</div>
+
+					<!-- Navigation -->
 					<div>
 						<h3 class="font-bold text-lg mb-4">Navigation</h3>
-						<ul class="space-y-2 text-sm">
+						<ul class="space-y-2 text-sm text-gray-400">
 							<li><a href="/" class="hover:text-orange-400 transition">Accueil</a></li>
-							<li><a href="#" class="hover:text-orange-400 transition">Le Festival</a></li>
-							<li><a href="#" class="hover:text-orange-400 transition">Artistes</a></li>
-							<li><a href="#" class="hover:text-orange-400 transition">Scènes</a></li>
-							<li><a href="#" class="hover:text-orange-400 transition">Contact</a></li>
+							<li><a href="/le-festival" class="hover:text-orange-400 transition">Le Festival</a></li>
+							<li><a href="/infos-pratiques" class="hover:text-orange-400 transition">Infos Pratiques</a></li>
+							<li><a href="/contact" class="hover:text-orange-400 transition">Contact</a></li>
 						</ul>
 					</div>
-					<div class="hidden md:block">
-					</div>
+
+					<!-- Contact -->
 					<div>
 						<h3 class="font-bold text-lg mb-4">Contact</h3>
-						<p class="text-sm mb-2">📍 Place Saint-Martin</p>
-						<p class="text-sm mb-2">25200 Montbéliard</p>
-						<p class="text-sm mb-2">📧 contact@lafetecomtoise.fr</p>
-						<p class="text-sm">☎️ 03 81 91 54 56</p>
+						<ul class="space-y-2 text-sm text-gray-400">
+							<li class="flex items-center gap-2">
+								<img src="/icones/position.svg" alt="" class="w-4 h-4 brightness-0 invert" />
+								<span>Place Saint-Martin, 25200 Montbeliard</span>
+							</li>
+							<li class="flex items-center gap-2">
+								<img src="/icones/mail.svg" alt="" class="w-4 h-4 brightness-0 invert" />
+								<a href="mailto:contact@fanfacomtoise.fr" class="hover:text-orange-400 transition">contact@fanfacomtoise.fr</a>
+							</li>
+							<li class="flex items-center gap-2">
+								<img src="/icones/call.svg" alt="" class="w-4 h-4 brightness-0 invert" />
+								<span>03 81 12 34 56</span>
+							</li>
+						</ul>
 					</div>
+
+					<!-- Reseaux sociaux -->
 					<div>
 						<h3 class="font-bold text-lg mb-4">Suivez-nous</h3>
 						<div class="flex gap-4">
-							<a href="#" class="text-2xl hover:text-orange-400 transition">📘</a>
-							<a href="#" class="text-2xl hover:text-orange-400 transition">📷</a>
-							<a href="#" class="text-2xl hover:text-orange-400 transition">🐦</a>
+							<a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange-400 transition" aria-label="Facebook">
+								<img src="/icones/facebook.svg" alt="" class="w-5 h-5 brightness-0 invert" />
+							</a>
+							<a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-orange-400 transition" aria-label="Instagram">
+								<img src="/icones/instagram.svg" alt="" class="w-5 h-5 brightness-0 invert" />
+							</a>
 						</div>
 					</div>
 				</div>
-				<hr class="border-gray-300 mb-6" />
-				<p class="text-center text-sm text-gray-600">
-					© 2025 La Fête Comtoise - Tous droits réservés
-				</p>
+
+				<hr class="border-gray-700 mb-6" />
+				
+				<div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+					<p>&copy; 2025 La Fanfa'Comtoise - Tous droits reserves</p>
+					<div class="flex gap-4">
+						<a href="#" class="hover:text-orange-400 transition">Mentions legales</a>
+						<a href="#" class="hover:text-orange-400 transition">Politique de confidentialite</a>
+					</div>
+				</div>
 			</div>
 		</footer>
 	</body>

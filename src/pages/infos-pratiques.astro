@@ -1,0 +1,228 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Infos Pratiques - La Fanfa'Comtoise">
+    <!-- SECTION HERO -->
+    <section class="relative w-full h-64 md:h-80 bg-cover bg-center">
+        <img src="/images/images/hero-du-site.avif" alt="Hero infos pratiques" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="relative flex flex-col justify-center items-center h-full px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Infos Pratiques</h1>
+            <p class="text-xl text-white/90">Tout ce qu'il faut savoir pour profiter du festival</p>
+        </div>
+    </section>
+
+    <!-- SECTION TARIFS -->
+    <section class="w-full py-16 px-4 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8">Tarifs</h2>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Festival Gratuit -->
+                <article class="bg-orange-50 p-8 rounded-xl border-2 border-orange-400">
+                    <h3 class="text-2xl font-bold mb-4 text-orange-500">Festival 100% Gratuit !</h3>
+                    <p class="text-gray-700">
+                        L'entree au festival est totalement gratuite et ouverte a tous. Aucune reservation necessaire.
+                    </p>
+                </article>
+
+                <!-- Restauration -->
+                <article class="bg-white p-8 rounded-xl border border-gray-200">
+                    <h3 class="text-2xl font-bold mb-4">Restauration & Boissons</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start gap-2">
+                            <span class="text-orange-400 mt-1">-</span>
+                            <span>Stands de producteurs bio et locaux</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-orange-400 mt-1">-</span>
+                            <span>Restauration locale : 5 - 12 euros</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-orange-400 mt-1">-</span>
+                            <span>Boissons : 2 - 5 euros</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-orange-400 mt-1">-</span>
+                            <span>Caution gobelet reutilisable : 1 euro (remboursee lors du retour)</span>
+                        </li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION HEBERGEMENTS -->
+    <section class="w-full py-16 px-4" style="background-color: #FFFBF0">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8">Hebergements</h2>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Hotels -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <img src="/icones/bed.svg" alt="" class="w-6 h-6" />
+                        Hotels
+                    </h3>
+
+                    <div class="space-y-4">
+                        <article class="bg-white p-6 rounded-xl border border-gray-200">
+                            <h4 class="font-bold text-lg">Hotel de la Balance</h4>
+                            <p class="text-gray-600 text-sm">40 Rue de Belfort, Montbeliard</p>
+                            <p class="text-orange-500 text-sm font-medium mt-1">A 5 min a pied du festival</p>
+                        </article>
+
+                        <article class="bg-white p-6 rounded-xl border border-gray-200">
+                            <h4 class="font-bold text-lg">Ibis Montbeliard</h4>
+                            <p class="text-gray-600 text-sm">5 Rue Georges Pompidou</p>
+                            <p class="text-orange-500 text-sm font-medium mt-1">A 10 min a pied du festival</p>
+                        </article>
+
+                        <article class="bg-white p-6 rounded-xl border border-gray-200">
+                            <h4 class="font-bold text-lg">BNB Hotel</h4>
+                            <p class="text-gray-600 text-sm">25C Rue des Gourties</p>
+                            <p class="text-orange-500 text-sm font-medium mt-1">A 15 min en bus</p>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Chambres d'hotes -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <img src="/icones/villa.svg" alt="" class="w-6 h-6" />
+                        Chambres d'hotes
+                    </h3>
+
+                    <article class="bg-white p-6 rounded-xl border border-gray-200">
+                        <p class="text-gray-700">
+                            Plusieurs options d'hebergement chez l'habitant disponibles a proximite du festival. Contactez-nous pour plus d'informations.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION ACCES & TRANSPORT -->
+    <section class="w-full py-16 px-4 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8">Acces & Transport</h2>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- En train -->
+                <article class="bg-white p-6 rounded-xl border border-gray-200">
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="/icones/train.svg" alt="" class="w-8 h-8" />
+                        <h3 class="text-xl font-bold">En train</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4">Gare de Montbeliard : A 15 min a pied du centre-ville.</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>- Depuis Besancon : 45 min</li>
+                        <li>- Depuis Lyon : 3h</li>
+                        <li>- Depuis Paris : 2h50 (TGV via Belfort)</li>
+                    </ul>
+                </article>
+
+                <!-- En voiture -->
+                <article class="bg-white p-6 rounded-xl border border-gray-200">
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="/icones/voiture.svg" alt="" class="w-8 h-8" />
+                        <h3 class="text-xl font-bold">En voiture</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4">Acces par l'A36 (sortie Montbeliard Centre)</p>
+                    <p class="font-semibold text-sm mb-2">Parkings gratuits :</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>- Parking des Halles (200 places) - 5 min</li>
+                        <li>- Parking de la Gare (300 places) - 15 min</li>
+                        <li>- Parking du Champ-de-Foire (500 places) - 10 min</li>
+                    </ul>
+                    <p class="text-orange-500 text-sm mt-3 font-medium">Privilegiez le covoiturage !</p>
+                </article>
+
+                <!-- Transport doux -->
+                <article class="bg-white p-6 rounded-xl border border-gray-200">
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="/icones/bike.svg" alt="" class="w-8 h-8" />
+                        <h3 class="text-xl font-bold">Transport doux</h3>
+                    </div>
+                    <ul class="text-sm text-gray-600 space-y-3">
+                        <li><span class="font-semibold">Veli-Go :</span> Plusieurs stations a proximite du centre-ville</li>
+                        <li><span class="font-semibold">Bus :</span> Lignes 1, 2 et 3 du reseau CTPM, arret "Place Saint-Martin"</li>
+                        <li><span class="font-semibold">Velo :</span> Pistes cyclables securisees a proximite de chaque scene</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION FAQ -->
+    <section class="w-full py-16 px-4" style="background-color: #FFFBF0">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8">Questions frequentes</h2>
+
+            <div class="space-y-4">
+                <details class="bg-white rounded-xl border border-gray-200 overflow-hidden group">
+                    <summary class="p-6 cursor-pointer font-bold text-lg flex justify-between items-center hover:bg-gray-50 transition">
+                        Le festival est-il vraiment gratuit ?
+                        <img src="/icones/chevron.svg" alt="" class="w-5 h-5 transform group-open:rotate-180 transition-transform" />
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-700">
+                        Oui, l'entree au festival est totalement gratuite. Aucune reservation n'est necessaire. Seuls les consommations a titre optionnel (boissons, restauration) sont payants.
+                    </div>
+                </details>
+
+                <details class="bg-white rounded-xl border border-gray-200 overflow-hidden group">
+                    <summary class="p-6 cursor-pointer font-bold text-lg flex justify-between items-center hover:bg-gray-50 transition">
+                        Comment le festival respecte-t-il l'environnement ?
+                        <img src="/icones/chevron.svg" alt="" class="w-5 h-5 transform group-open:rotate-180 transition-transform" />
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-700">
+                        La Fanfa'Comtoise s'engage pour l'ecoresponsabilite : gestion des dechets, gobelets reutilisables, restauration bio et locale, transport doux encourage, et une scene en pleine nature pour minimiser l'impact environnemental.
+                    </div>
+                </details>
+
+                <details class="bg-white rounded-xl border border-gray-200 overflow-hidden group">
+                    <summary class="p-6 cursor-pointer font-bold text-lg flex justify-between items-center hover:bg-gray-50 transition">
+                        Peut-on venir avec des enfants ?
+                        <img src="/icones/chevron.svg" alt="" class="w-5 h-5 transform group-open:rotate-180 transition-transform" />
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-700">
+                        Bien sur ! Le festival est familial et accueille les enfants de tous les ages. Des zones d'ombre et de repos sont amenagees a proximite de chaque scene pour leur confort.
+                    </div>
+                </details>
+
+                <details class="bg-white rounded-xl border border-gray-200 overflow-hidden group">
+                    <summary class="p-6 cursor-pointer font-bold text-lg flex justify-between items-center hover:bg-gray-50 transition">
+                        Ou peut-on se restaurer ?
+                        <img src="/icones/chevron.svg" alt="" class="w-5 h-5 transform group-open:rotate-180 transition-transform" />
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-700">
+                        Des stands de restauration locale et bio sont presents a proximite de chaque scene. Vous pourrez deguster des specialites locales, des plats vegetariens, des boissons, et bien d'autres delices culinaires.
+                    </div>
+                </details>
+
+                <details class="bg-white rounded-xl border border-gray-200 overflow-hidden group">
+                    <summary class="p-6 cursor-pointer font-bold text-lg flex justify-between items-center hover:bg-gray-50 transition">
+                        Le festival est-il accessible aux personnes a mobilite reduite ?
+                        <img src="/icones/chevron.svg" alt="" class="w-5 h-5 transform group-open:rotate-180 transition-transform" />
+                    </summary>
+                    <div class="px-6 pb-6 text-gray-700">
+                        Oui, toutes les scenes sont accessibles PMR. Des zones de stationnement reservees sont disponibles a proximite immediate du festival. N'hesitez pas a nous contacter pour des besoins specifiques.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION CONTACT CTA -->
+    <section class="w-full py-16 px-4 bg-orange-400 text-white">
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4">Une question ?</h2>
+            <p class="text-lg mb-8">Vous ne trouvez pas la reponse a votre question ? N'hesitez pas a nous contacter !</p>
+            <a href="/contact" class="inline-block bg-white px-8 py-3 rounded-full font-bold text-orange-400 hover:opacity-90 transition">
+                Nous contacter
+            </a>
+        </div>
+    </section>
+</Layout>
