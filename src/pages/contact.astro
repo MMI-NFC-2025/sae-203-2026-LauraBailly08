@@ -1,5 +1,36 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { addContact } from '../../backend/backend.mjs';
+
+export const prerender = false;
+
+let successMessage = '';
+let errorMessage = '';
+
+if (Astro.request.method === 'POST') {
+  try {
+    const formData = await Astro.request.formData();
+    const nomComplet = String(formData.get('name') || '').trim();
+    const email = String(formData.get('email') || '').trim();
+    const sujet = String(formData.get('subject') || '').trim();
+    const message = String(formData.get('message') || '').trim();
+
+    if (!nomComplet || !email || !sujet || !message) {
+      throw new Error('Merci de remplir tous les champs obligatoires.');
+    }
+
+    await addContact({
+      nom_complet: nomComplet,
+      email,
+      sujet,
+      message,
+    });
+
+    successMessage = 'Message envoye avec succes. Merci pour votre contact.';
+  } catch (error) {
+    errorMessage = error instanceof Error ? error.message : 'Une erreur est survenue lors de l envoi du message.';
+  }
+}
 ---
 
 <Layout>
@@ -67,8 +98,20 @@ import Layout from '../layouts/Layout.astro';
   <!-- Contact Form Section -->
   <section class="max-w-2xl mx-auto px-4 py-16 md:py-24">
     <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-10 md:mb-12 text-center">Envoyez-nous un message</h2>
+
+    {successMessage && (
+      <div class="mb-6 rounded-lg border border-green-200 bg-green-50 p-4 text-green-700">
+        {successMessage}
+      </div>
+    )}
+
+    {errorMessage && (
+      <div class="mb-6 rounded-lg border border-red-200 bg-red-50 p-4 text-red-700">
+        {errorMessage}
+      </div>
+    )}
     
-    <form class="space-y-6" method="POST" action="#" novalidate>
+    <form class="space-y-6" method="POST" novalidate>
       <!-- Name -->
       <div>
         <label for="name" class="block text-lg font-semibold text-gray-900 mb-2">

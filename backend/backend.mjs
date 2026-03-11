@@ -7,12 +7,12 @@ export async function artistesSorted() {
 }
 
 export async function scenesName() {
-    const records = await pb.collection('scene').getFullList({ sort: 'nom' });
+    const records = await pb.collection('scene').getFullList({ sort: 'nom_scene' });
     return records;
 }
 
 export async function artistesName() {
-    const records = await pb.collection('artiste').getFullList({ sort: 'nom' });
+    const records = await pb.collection('artiste').getFullList({ sort: 'nom_artiste' });
     return records;
 }
 
@@ -179,5 +179,16 @@ export async function getSceneById(id) {
     } catch (error) {
         console.error('Erreur getSceneById:', error);
         return null;
+    }
+}
+
+export async function addContact(contactData) {
+    try {
+        const record = await pb.collection('contact').create(contactData);
+        console.log('Contact ajoute :', record);
+        return record;
+    } catch (error) {
+        console.error('Erreur lors de l ajout du contact :', error);
+        throw error;
     }
 }

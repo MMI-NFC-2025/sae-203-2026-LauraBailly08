@@ -1,0 +1,165 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <section class="error-404">
+    <div class="error-404__container">
+      <div class="error-404__content">
+        <h1 class="error-404__title">404</h1>
+        <h2 class="error-404__subtitle">Oups ! Page non trouvee</h2>
+        <p class="error-404__description">
+          Desole, la page que vous recherchez n'existe pas ou a ete deplacee.
+          Il semble que vous ayez pris un mauvais tournant lors de votre visite au festival.
+        </p>
+
+        <div class="error-404__actions">
+          <a href="/" class="error-404__btn error-404__btn--primary">Retourner a l'accueil</a>
+          <a href="/contact" class="error-404__btn error-404__btn--secondary">Nous contacter</a>
+        </div>
+
+        <div class="error-404__suggestions">
+          <h3 class="error-404__suggestions-title">Vous cherchiez peut-etre :</h3>
+          <ul class="error-404__suggestions-list">
+            <li><a href="/le-festival">Le Festival</a></li>
+            <li><a href="/programme">Programme</a></li>
+            <li><a href="/artistes">Artistes</a></li>
+            <li><a href="/scenes">Les Scenes</a></li>
+            <li><a href="/infos-pratiques">Infos Pratiques</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="error-404__illustration" aria-hidden="true">
+        <img src="/icones/music.svg" alt="" class="error-404__illustration-icon" />
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .error-404 {
+    min-height: calc(100vh - 12rem);
+    padding: 4rem 1rem;
+    background: radial-gradient(circle at 85% 20%, #fff2cc 0%, #ffffff 48%);
+  }
+
+  .error-404__container {
+    max-width: 72rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .error-404__content {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #e5e7eb;
+    border-radius: 1rem;
+    padding: 1.5rem;
+  }
+
+  .error-404__title {
+    font-size: clamp(3rem, 10vw, 6rem);
+    line-height: 1;
+    font-weight: 800;
+    margin: 0 0 0.5rem;
+    color: #111827;
+  }
+
+  .error-404__subtitle {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 700;
+    margin: 0 0 1rem;
+    color: #111827;
+  }
+
+  .error-404__description {
+    margin: 0 0 1.5rem;
+    color: #374151;
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 40ch;
+  }
+
+  .error-404__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .error-404__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.2rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    transition: opacity 0.2s ease;
+  }
+
+  .error-404__btn:hover {
+    opacity: 0.85;
+  }
+
+  .error-404__btn--primary {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .error-404__btn--secondary {
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    background: transparent;
+  }
+
+  .error-404__suggestions-title {
+    margin: 0 0 0.75rem;
+    font-size: 1.05rem;
+    color: #111827;
+  }
+
+  .error-404__suggestions-list {
+    margin: 0;
+    padding-left: 1rem;
+    columns: 1;
+    gap: 2rem;
+  }
+
+  .error-404__suggestions-list a {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .error-404__illustration {
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .error-404__illustration-icon {
+    width: min(14rem, 45vw);
+    filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.18));
+  }
+
+  @media (min-width: 900px) {
+    .error-404__container {
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+
+    .error-404__content {
+      padding: 2.5rem;
+    }
+
+    .error-404__suggestions-list {
+      columns: 2;
+    }
+
+    .error-404__illustration {
+      display: flex;
+    }
+  }
+</style>
