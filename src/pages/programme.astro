@@ -18,7 +18,7 @@ const programmeParJour = Array.from(groupes.entries())
 ---
 
 <Layout>
-    <section class="relative w-full h-96 md:h-screen overflow-hidden">
+    <section class="relative w-full h-96 md:h-[80vh] overflow-hidden">
         <img src="/images/images/programme.avif" alt="Programme du festival" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-black/40"></div>
         <div class="relative h-full flex flex-col items-center justify-center text-center px-4">
@@ -26,8 +26,8 @@ const programmeParJour = Array.from(groupes.entries())
                 <img src="/icones/calendrier.svg" alt="Calendrier" class="w-6 h-6">
                 <span class="text-white font-bold">Programme en direct PocketBase</span>
             </div>
-            <h1 class="text-5xl md:text-6xl font-bold text-white mb-4">Programme</h1>
-            <p class="text-xl md:text-2xl text-white max-w-3xl">Tous les concerts sont synchronises depuis votre base de donnees.</p>
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Programme</h1>
+            <p class="text-lg md:text-2xl text-white max-w-3xl">Tous les concerts sont synchronises depuis votre base de donnees.</p>
         </div>
     </section>
 
@@ -40,7 +40,7 @@ const programmeParJour = Array.from(groupes.entries())
             ) : (
                 programmeParJour.map((groupe) => (
                     <div class="bg-white rounded-lg overflow-hidden border border-gray-200">
-                        <div class="flex items-center gap-4 p-6 border-b-4" style="border-color: var(--color-primary)">
+                        <div class="flex items-center gap-4 p-4 md:p-6 border-b-4" style="border-color: var(--color-primary)">
                             <img src="/icones/calendrier.svg" alt="Date" class="w-6 h-6">
                             <div>
                                 <h2 class="text-2xl font-bold text-gray-900" style="text-transform: capitalize;">{formatDayFr(groupe.jour)}</h2>
@@ -50,13 +50,13 @@ const programmeParJour = Array.from(groupes.entries())
 
                         <div class="divide-y">
                             {groupe.entries.map((artiste) => (
-                                <article class="p-6 flex items-start gap-6 hover:bg-gray-50 transition">
-                                    <div class="flex flex-col items-center gap-2 min-w-fit">
+                                <article class="p-4 md:p-6 flex flex-col sm:flex-row items-start gap-4 sm:gap-6 hover:bg-gray-50 transition">
+                                    <div class="flex flex-row sm:flex-col items-center gap-2 min-w-fit">
                                         <img src="/icones/horaire.svg" alt="Heure" class="w-5 h-5">
                                         <span class="font-bold text-lg" style="color: var(--color-primary)">{formatTimeFr(artiste.date_representation)}</span>
                                     </div>
                                     <div class="flex-1">
-                                        <h3 class="text-xl font-bold text-gray-900 mb-2">{artiste.nom_artiste || 'Artiste sans nom'}</h3>
+                                        <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2">{artiste.nom_artiste || 'Artiste sans nom'}</h3>
                                         <div class="flex flex-wrap items-center gap-4">
                                             <span class="px-3 py-1 rounded-full text-white text-sm font-bold" style="background-color: var(--color-primary)">
                                                 {artiste.genre_musical || 'Genre a confirmer'}

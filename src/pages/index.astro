@@ -4,13 +4,13 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="La Fanfa'Comtoise - Festival de Musique">
     <!-- SECTION HERO -->
-    <section class="relative w-full h-96 md:h-125 bg-cover bg-center overflow-hidden">
+    <section class="relative w-full h-136 md:h-160 bg-cover bg-center overflow-hidden">
         <img src="/images/images/hero-du-site.avif" alt="Hero du site" class="absolute inset-0 w-full h-full object-cover">
         <div class="absolute inset-0 bg-black/30"></div>
         <div class="relative flex flex-col justify-center items-center h-full px-4 text-center text-white">
-            <h1 class="text-4xl md:text-5xl font-bold mb-8">Jazz, Fanfares & Musiques de Rues</h1>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 md:mb-8">Jazz, Fanfares & Musiques de Rues</h1>
             
-            <div class="flex gap-6 mb-8 flex-wrap justify-center">
+            <div class="flex gap-3 sm:gap-6 mb-6 md:mb-8 flex-wrap justify-center">
                 <div class="flex items-center gap-2">
                     <img src="/icones/calendrier.svg" alt="date" class="w-5 h-5">
                     <p class="font-medium">27-29 juin 2025</p>
@@ -21,12 +21,12 @@ import Layout from '../layouts/Layout.astro';
                 </div>
             </div>
             
-            <div class="flex gap-4 flex-wrap justify-center mb-8">
-                <a href="/programme" class="flex items-center gap-2 px-6 py-3 rounded-full font-bold text-white transition hover:opacity-90" style="background-color: var(--color-primary)">
+            <div class="flex gap-3 sm:gap-4 flex-wrap justify-center mb-6 md:mb-8 w-full sm:w-auto">
+                <a href="/programme" class="flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-full font-bold text-white transition hover:opacity-90 w-full sm:w-auto" style="background-color: var(--color-primary)">
                     <img src="/icones/music.svg" alt="musique" class="w-5 h-5">
                     Découvrir le programme
                 </a>
-                <a href="#billetterie" class="flex items-center gap-2 border-2 border-white text-white bg-transparent px-6 py-3 rounded-full font-bold hover:bg-white/20 transition">
+                <a href="#billetterie" class="flex items-center justify-center gap-2 border-2 border-white text-white bg-transparent px-5 sm:px-6 py-3 rounded-full font-bold hover:bg-white/20 transition w-full sm:w-auto">
                     <img src="/icones/ticket.svg" alt="billetterie" class="w-5 h-5">
                     Billetterie
                 </a>
@@ -42,7 +42,7 @@ import Layout from '../layouts/Layout.astro';
     <!-- SECTION STATISTIQUES -->
     <section class="w-full py-16 px-4" style="background-color: #FFFBF0">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12">Le Festival en Chiffres</h2>
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-10 md:mb-12">Le Festival en Chiffres</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <article class="bg-white p-8 rounded-xl shadow-sm text-center border border-gray-100">
                     <span class="text-4xl block mb-4">🎤</span>
@@ -74,7 +74,7 @@ import Layout from '../layouts/Layout.astro';
     <!-- SECTION DÉCOUVREZ LE FESTIVAL -->
     <section class="w-full py-16 px-4" style="background-color: #FFFBF0">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12">Découvrez le festival</h2>
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-10 md:mb-12">Découvrez le festival</h2>
             
             <div class="relative">
                 <!-- Carousel Container -->
@@ -135,12 +135,12 @@ import Layout from '../layouts/Layout.astro';
                 </div>
 
                 <!-- Navigation Buttons -->
-                <button id="carousel-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-14 md:-translate-x-16 bg-white text-gray-700 hover:opacity-70 w-10 h-10 rounded-full flex items-center justify-center transition shadow-md" style="color: var(--color-primary)">
+                <button id="carousel-prev" class="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 lg:-translate-x-16 bg-white text-gray-700 hover:opacity-70 w-10 h-10 rounded-full items-center justify-center transition shadow-md" style="color: var(--color-primary)">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                     </svg>
                 </button>
-                <button id="carousel-next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-14 md:translate-x-16 bg-white text-gray-700 hover:opacity-70 w-10 h-10 rounded-full flex items-center justify-center transition shadow-md" style="color: var(--color-primary)">
+                <button id="carousel-next" class="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 lg:translate-x-16 bg-white text-gray-700 hover:opacity-70 w-10 h-10 rounded-full items-center justify-center transition shadow-md" style="color: var(--color-primary)">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                     </svg>
@@ -193,54 +193,54 @@ import Layout from '../layouts/Layout.astro';
     <!-- SECTION PARTENAIRES -->
     <section class="w-full py-16 px-4 bg-white">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold text-center mb-12">Nos partenaires</h2>
+            <h2 class="text-2xl md:text-3xl font-bold text-center mb-10 md:mb-12">Nos partenaires</h2>
             
             <!-- Infinite Loop Carousel -->
             <div class="overflow-hidden">
                 <div class="flex gap-6 animate-scroll">
                     <!-- Set 1 - Original -->
                     <div class="flex gap-6 shrink-0">
-                        <div class="w-48 h-24 border border-gray-200 rounded-lg flex items-center justify-center bg-white hover:shadow-md transition">
+                        <div class="w-40 md:w-48 h-24 border border-gray-200 rounded-lg flex items-center justify-center bg-white hover:shadow-md transition">
                             <img src="/icones/airbnb.svg" alt="Airbnb" class="h-12 object-contain px-4">
                         </div>
-                        <div class="w-48 h-24 border border-gray-200 rounded-lg flex items-center justify-center bg-white hover:shadow-md transition">
+                        <div class="w-40 md:w-48 h-24 border border-gray-200 rounded-lg flex items-center justify-center bg-white hover:shadow-md transition">
                             <img src="/icones/Credit-Agricole-Logo.svg" alt="Crédit Agricole" class="h-12 object-contain px-4">
                         </div>
-                        <div class="w-48 h-24 border border-gray-200 rounded-lg flex items-center justify-center bg-white hover:shadow-md transition">
+                        <div class="w-40 md:w-48 h-24 border border-gray-200 rounded-lg flex items-center justify-center bg-white hover:shadow-md transition">
                             <img src="/icones/Jaidemescommercants.fr-Partenaires-ville-montbeliard-09.svg" alt="Ville de Montbéliard" class="h-12 object-contain px-4">
                         </div>
-                        <div class="w-48 h-24 border border-gray-200 rounded-lg flex items-center justify-center bg-white hover:shadow-md transition">
+                        <div class="w-40 md:w-48 h-24 border border-gray-200 rounded-lg flex items-center justify-center bg-white hover:shadow-md transition">
                             <img src="/icones/franche-comté-logo.svg" alt="Région" class="h-12 object-contain px-4">
                         </div>
-                        <div class="w-48 h-24 border border-gray-200 rounded-lg flex items-center justify-center bg-white hover:shadow-md transition">
+                        <div class="w-40 md:w-48 h-24 border border-gray-200 rounded-lg flex items-center justify-center bg-white hover:shadow-md transition">
                             <img src="/icones/departement-doubs-logo.svg" alt="Doubs" class="h-12 object-contain px-4">
                         </div>
-                        <div class="w-48 h-24 border border-gray-200 rounded-lg flex items-center justify-center bg-white hover:shadow-md transition">
+                        <div class="w-40 md:w-48 h-24 border border-gray-200 rounded-lg flex items-center justify-center bg-white hover:shadow-md transition">
                             <img src="/icones/Logo-Poudriere.svg" alt="La Poudière" class="h-12 object-contain px-4">
                         </div>
-                        <div class="w-48 h-24 border border-gray-200 rounded-lg flex items-center justify-center bg-white hover:shadow-md transition">
+                        <div class="w-40 md:w-48 h-24 border border-gray-200 rounded-lg flex items-center justify-center bg-white hover:shadow-md transition">
                             <img src="/icones/moloco.svg" alt="Le Moloco" class="h-12 object-contain px-4">
                         </div>
                     </div>
 
                     <!-- Set 2 - Duplicate for infinite loop -->
                     <div class="flex gap-6 shrink-0">
-                        <div class="w-48 h-24 border border-gray-200 rounded-lg flex items-center justify-center bg-white hover:shadow-md transition">
+                        <div class="w-40 md:w-48 h-24 border border-gray-200 rounded-lg flex items-center justify-center bg-white hover:shadow-md transition">
                             <img src="/icones/airbnb.svg" alt="Airbnb" class="h-12 object-contain px-4">
                         </div>
-                        <div class="w-48 h-24 border border-gray-200 rounded-lg flex items-center justify-center bg-white hover:shadow-md transition">
+                        <div class="w-40 md:w-48 h-24 border border-gray-200 rounded-lg flex items-center justify-center bg-white hover:shadow-md transition">
                             <img src="/icones/Credit-Agricole-Logo.svg" alt="Crédit Agricole" class="h-12 object-contain px-4">
                         </div>
-                        <div class="w-48 h-24 border border-gray-200 rounded-lg flex items-center justify-center bg-white hover:shadow-md transition">
+                        <div class="w-40 md:w-48 h-24 border border-gray-200 rounded-lg flex items-center justify-center bg-white hover:shadow-md transition">
                             <img src="/icones/Jaidemescommercants.fr-Partenaires-ville-montbeliard-09.svg" alt="Ville de Montbéliard" class="h-12 object-contain px-4">
                         </div>
-                        <div class="w-48 h-24 border border-gray-200 rounded-lg flex items-center justify-center bg-white hover:shadow-md transition">
+                        <div class="w-40 md:w-48 h-24 border border-gray-200 rounded-lg flex items-center justify-center bg-white hover:shadow-md transition">
                             <img src="/icones/franche-comté-logo.svg" alt="Région" class="h-12 object-contain px-4">
                         </div>
-                        <div class="w-48 h-24 border border-gray-200 rounded-lg flex items-center justify-center bg-white hover:shadow-md transition">
+                        <div class="w-40 md:w-48 h-24 border border-gray-200 rounded-lg flex items-center justify-center bg-white hover:shadow-md transition">
                             <img src="/icones/departement-doubs-logo.svg" alt="Doubs" class="h-12 object-contain px-4">
                         </div>
-                        <div class="w-48 h-24 border border-gray-200 rounded-lg flex items-center justify-center bg-white hover:shadow-md transition">
+                        <div class="w-40 md:w-48 h-24 border border-gray-200 rounded-lg flex items-center justify-center bg-white hover:shadow-md transition">
                             <img src="/icones/Logo-Poudriere.svg" alt="La Poudière" class="h-12 object-contain px-4">
                         </div>
                         <div class="w-48 h-24 border border-gray-200 rounded-lg flex items-center justify-center bg-white hover:shadow-md transition">
@@ -274,16 +274,16 @@ import Layout from '../layouts/Layout.astro';
     <!-- SECTION PRÉPAREZ VOTRE VENUE -->
     <section class="w-full py-16 px-4" style="background-color: var(--color-primary)">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-6 text-white">Préparez votre venue</h2>
-            <p class="text-lg text-white mb-8">Téléchargez le programme complet et consultez toutes les informations pratiques pour profiter pleinement du festival</p>
-            <div class="flex gap-4 flex-wrap justify-center">
-                <a href="/programme.pdf" class="flex items-center gap-2 px-8 py-3 rounded-full font-bold transition hover:opacity-90" style="color: var(--color-primary); background-color: white;">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-white">Préparez votre venue</h2>
+            <p class="text-base md:text-lg text-white mb-8">Téléchargez le programme complet et consultez toutes les informations pratiques pour profiter pleinement du festival</p>
+            <div class="flex gap-3 md:gap-4 flex-wrap justify-center">
+                <a href="/programme.pdf" class="flex items-center justify-center gap-2 px-6 md:px-8 py-3 rounded-full font-bold transition hover:opacity-90 w-full sm:w-auto" style="color: var(--color-primary); background-color: white;">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
                     </svg>
                     Télécharger le programme
                 </a>
-                <a href="/contact" class="border-2 border-white text-white px-8 py-3 rounded-full font-bold transition hover:bg-white/10">
+                <a href="/contact" class="border-2 border-white text-white px-6 md:px-8 py-3 rounded-full font-bold transition hover:bg-white/10 w-full sm:w-auto">
                     Nous contacter
                 </a>
             </div>

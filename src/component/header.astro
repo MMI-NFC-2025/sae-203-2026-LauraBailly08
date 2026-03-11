@@ -3,18 +3,20 @@
 ---
 
 <header class="w-full bg-white border-b border-gray-100 sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center h-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center h-20 md:h-24 gap-4">
     
     <!-- Logo -->
     <a href="/" class="shrink-0">
       <img src="/icones/logo-du-site.svg" alt="Logo La Fanfa'Comtoise" class="h-16 w-auto" />
     </a>
 
-    <!-- Hamburger Menu Button - Always visible -->
+    <!-- Hamburger Menu Button -->
     <button 
       id="menu-toggle"
       class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:bg-gray-100 focus:outline-none"
       aria-label="Ouvrir le menu de navigation"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
     >
       <svg 
         id="menu-icon"
@@ -51,5 +53,8 @@
 
   btn?.addEventListener('click', () => {
     menu?.classList.toggle('hidden');
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
   });
+
 </script>
