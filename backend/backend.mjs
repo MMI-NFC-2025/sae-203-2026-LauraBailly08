@@ -1,5 +1,5 @@
 import PocketBase from 'pocketbase';
-const pb = new PocketBase('https://lafanfacomtoise.bailly-laura.fr');
+export const pb = new PocketBase('https://lafanfacomtoise.bailly-laura.fr');
 
 export async function artistesSorted() {
     const records = await pb.collection('artiste').getFullList({ sort: 'date_representation' });
@@ -106,4 +106,78 @@ export async function artistesWithScene() {
 export function artisteImageUrl(artiste, field = 'image') {
     if (!artiste?.[field]) return '/assets/images/default-artist.avif';
     return pb.files.getURL(artiste, artiste[field]);
+}
+
+// Helpers utilises par les pages Astro
+export function formatDateFr(date) {
+    if (!date) return 'Date a confirmer';
+    const parsed = new Date(date);
+    if (Number.isNaN(parsed.getTime())) return 'Date invalide';
+
+    return new Intl.DateTimeFormat('fr-FR', {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric',
+    }).format(parsed);
+}
+
+export function formatTimeFr(date) {
+    if (!date) return 'Heure a confirmer';
+    const parsed = new Date(date);
+    if (Number.isNaN(parsed.getTime())) return 'Heure invalide';
+
+    return new Intl.DateTimeFormat('fr-FR', {
+        hour: '2-digit',
+        minute: '2-digit',
+    }).format(parsed);
+}
+
+export function formatDayFr(date) {
+    if (!date) return 'Jour a confirmer';
+    const parsed = new Date(date);
+    if (Number.isNaN(parsed.getTime())) return 'Jour invalide';
+
+    return new Intl.DateTimeFormat('fr-FR', {
+        weekday: 'long',
+    }).format(parsed);
+}
+
+export async function getArtistesParDate() {
+    try {
+        return await pb.collection('artiste').getFullList({
+            sort: '+date_representation',
+        });
+    } catch (error) {
+        console.error('Erreur getArtistesParDate:', error);
+        return [];
+    }
+}
+
+export async function getScenesParNom() {
+    try {
+        return await pb.collection('scene').getFullList({
+            sort: '+nom_scene',
+        });
+    } catch (error) {
+        console.error('Erreur getScenesParNom:', error);
+        return [];
+    }
+}
+
+export async function getArtisteById(id) {
+    try {
+        return await pb.collection('artiste').getOne(id);
+    } catch (error) {
+        console.error('Erreur getArtisteById:', error);
+        return null;
+    }
+}
+
+export async function getSceneById(id) {
+    try {
+        return await pb.collection('scene').getOne(id);
+    } catch (error) {
+        console.error('Erreur getSceneById:', error);
+        return null;
+    }
 }

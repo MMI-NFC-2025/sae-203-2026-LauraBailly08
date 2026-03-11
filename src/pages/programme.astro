@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { formatDateFr, formatDayFr, formatTimeFr, getArtistesParDate } from '../lib/pocketbase';
+import { formatDateFr, formatDayFr, formatTimeFr, getArtistesParDate } from '../../backend/backend.mjs';
 
 const artistes = await getArtistesParDate();
 
