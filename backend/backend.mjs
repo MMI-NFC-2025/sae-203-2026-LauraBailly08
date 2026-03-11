@@ -34,16 +34,16 @@ export async function sceneID(id) {
 
 export async function allartistebysceneId(id) {
     const records = await pb.collection('artiste').getFullList({
-        filter: `scene="${id}"`,
+        filter: `artiste="${id}"`,
         sort: 'date_representation'
     });
     return records;
 }
 
 export async function allartistebysceneName(nom) {
-    const scene = await pb.collection('scene').getFirstListItem(`nom="${nom}"`);
+    const scene = await pb.collection('scene').getFirstListItem(`nom_scene="${nom}"`);
     const records = await pb.collection('artiste').getFullList({
-        filter: `scene="${scene.id}"`,
+        filter: `artiste="${scene.id}"`,
         sort: 'date_representation'
     });
     return records;

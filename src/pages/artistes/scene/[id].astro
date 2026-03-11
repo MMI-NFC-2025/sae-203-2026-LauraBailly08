@@ -1,0 +1,74 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import PbImage from '../../../lib/PbImage.astro';
+import { allartistebysceneId, formatDateFr, formatTimeFr, getSceneById, getScenesParNom } from '../../../../backend/backend.mjs';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const scenes = await getScenesParNom();
+
+  return scenes.map((scene) => ({
+    params: { id: scene.id },
+  }));
+}
+
+const { id } = Astro.params;
+const scene = id ? await getSceneById(id) : null;
+const artistes = id ? await allartistebysceneId(id) : [];
+
+if (!scene) {
+  return Astro.redirect('/scenes');
+}
+---
+
+<Layout>
+  <section class="py-16 md:py-20 px-4 md:px-6 text-center bg-gray-50">
+    <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-4">Artistes de la scene</h1>
+    <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+      {scene.nom_scene || 'Scene'} - {artistes.length} artiste(s)
+    </p>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 py-12 md:py-16">
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-900">Selection par scene</h2>
+      <a href="/scenes" class="font-semibold hover:opacity-80" style="color: var(--color-primary);">Retour aux scenes</a>
+    </div>
+
+    {artistes.length === 0 ? (
+      <div class="border border-gray-200 rounded-lg p-8 text-center text-gray-700">
+        Aucun artiste programme sur cette scene pour le moment.
+      </div>
+    ) : (
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {artistes.map((artiste) => (
+          <article class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition">
+            <div class="relative h-48 bg-gray-200 overflow-hidden">
+              <PbImage
+                record={artiste}
+                fieldName="photo_principal"
+                fallback="/images/images/les-artistes.avif"
+                alt={artiste.nom_artiste || 'Artiste'}
+                class="w-full h-full object-cover"
+              />
+              <span class="absolute top-3 right-3 px-3 py-1 rounded-full text-white text-sm font-bold" style="background-color: var(--color-primary)">
+                {artiste.genre_musical || 'Genre a confirmer'}
+              </span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-4 text-gray-900">{artiste.nom_artiste || 'Artiste sans nom'}</h3>
+              <div class="space-y-2 mb-4 text-gray-600">
+                <p>{formatDateFr(artiste.date_representation)} a {formatTimeFr(artiste.date_representation)}</p>
+                <p class="line-clamp-3">{artiste.descritpion || 'Description a venir.'}</p>
+              </div>
+              <a href={`/artistes/${artiste.id}`} class="font-bold transition hover:opacity-80" style="color: var(--color-primary)">
+                Voir la fiche artiste
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    )}
+  </section>
+</Layout>

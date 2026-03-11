@@ -1,0 +1,98 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { addArtiste, getScenesParNom } from '../../../../backend/backend.mjs';
+
+export const prerender = false;
+
+const scenes = await getScenesParNom();
+
+let errorMessage = '';
+
+if (Astro.request.method === 'POST') {
+  try {
+    const formData = await Astro.request.formData();
+
+    const nomArtiste = String(formData.get('nom_artiste') || '').trim();
+    const genreMusical = String(formData.get('genre_musical') || '').trim();
+    const description = String(formData.get('descritpion') || '').trim();
+    const scene = String(formData.get('scene') || '').trim();
+    const rawDate = String(formData.get('date_representation') || '').trim();
+
+    if (!nomArtiste) {
+      throw new Error('Le nom de l artiste est obligatoire.');
+    }
+
+    const parsedDate = rawDate ? new Date(rawDate) : null;
+    const dateRepresentation = parsedDate && !Number.isNaN(parsedDate.getTime()) ? parsedDate.toISOString() : null;
+
+    const artisteData = {
+      nom_artiste: nomArtiste,
+      genre_musical: genreMusical,
+      descritpion: description,
+      date_representation: dateRepresentation,
+      artiste: scene || null,
+    };
+
+    await addArtiste(artisteData);
+    return Astro.redirect('/artistes');
+  } catch (error) {
+    errorMessage = error instanceof Error ? error.message : 'Erreur inconnue lors de la creation.';
+  }
+}
+---
+
+<Layout>
+  <section class="py-16 md:py-20 px-4 md:px-6 text-center bg-gray-50">
+    <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-4">Ajouter un artiste</h1>
+    <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">Formulaire de saisie d un artiste relie a PocketBase.</p>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-4 py-12 md:py-16">
+    {errorMessage && (
+      <div class="mb-6 rounded-lg border border-red-200 bg-red-50 p-4 text-red-700">
+        {errorMessage}
+      </div>
+    )}
+
+    <form method="POST" class="space-y-6 bg-white p-6 md:p-8 rounded-lg border border-gray-200 shadow-sm">
+      <div>
+        <label for="nom_artiste" class="block text-sm font-semibold text-gray-800 mb-2">Nom artiste</label>
+        <input id="nom_artiste" name="nom_artiste" type="text" required class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none" />
+      </div>
+
+      <div>
+        <label for="genre_musical" class="block text-sm font-semibold text-gray-800 mb-2">Genre musical</label>
+        <input id="genre_musical" name="genre_musical" type="text" class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none" />
+      </div>
+
+      <div>
+        <label for="date_representation" class="block text-sm font-semibold text-gray-800 mb-2">Date et heure de representation</label>
+        <input id="date_representation" name="date_representation" type="datetime-local" class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none" />
+      </div>
+
+      <div>
+        <label for="scene" class="block text-sm font-semibold text-gray-800 mb-2">Scene</label>
+        <select id="scene" name="scene" class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none">
+          <option value="">Aucune scene</option>
+          {scenes.map((scene) => (
+            <option value={scene.id}>{scene.nom_scene || 'Scene sans nom'}</option>
+          ))}
+        </select>
+      </div>
+
+      <div>
+        <label for="descritpion" class="block text-sm font-semibold text-gray-800 mb-2">Description</label>
+        <textarea id="descritpion" name="descritpion" rows="5" class="w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none"></textarea>
+      </div>
+
+      <div class="flex flex-wrap gap-3">
+        <button type="submit" class="px-6 py-3 rounded-lg text-white font-semibold hover:opacity-90 transition" style="background-color: var(--color-primary)">
+          Enregistrer
+        </button>
+        <a href="/artistes" class="px-6 py-3 rounded-lg border border-gray-300 font-semibold text-gray-700 hover:bg-gray-50 transition">
+          Annuler
+        </a>
+      </div>
+    </form>
+  </section>
+</Layout>

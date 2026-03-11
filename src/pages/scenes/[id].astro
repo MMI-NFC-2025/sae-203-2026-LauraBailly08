@@ -90,9 +90,14 @@ if (!scene) {
     <div class="max-w-2xl mx-auto px-4">
       <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Pret a decouvrir cette scene ?</h2>
       <p class="text-lg text-gray-800 mb-8">Consultez le programme complet du festival pour connaitre tous les artistes qui s'y produiront.</p>
-      <a href="/programme" class="inline-block px-8 py-4 bg-gray-900 text-white font-semibold rounded-lg hover:bg-gray-800 transition">
-        Voir le programme
-      </a>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/programme" class="inline-block px-8 py-4 bg-gray-900 text-white font-semibold rounded-lg hover:bg-gray-800 transition">
+          Voir le programme
+        </a>
+        <a href={`/artistes/scene/${scene.id}`} class="inline-block px-8 py-4 text-white font-semibold rounded-lg hover:opacity-90 transition" style="background-color: var(--color-primary)">
+          Voir les artistes de cette scene
+        </a>
+      </div>
     </div>
   </section>
 </Layout>
