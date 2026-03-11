@@ -1,13 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { formatDateFr, formatTimeFr, getArtistesParDate, getRecordFileUrl } from '../lib/pocketbase';
+import { formatDateFr, formatTimeFr, getArtistesParDate } from '../lib/pocketbase';
+import PbImage from '../lib/PbImage.astro';
 
 const artistes = await getArtistesParDate();
-
-function toArtistImage(artiste: { [key: string]: unknown }) {
-    const image = typeof artiste.photo_principal === 'string' ? artiste.photo_principal : '';
-    return getRecordFileUrl(artiste, image) || '/images/images/les-artistes.avif';
-}
 ---
 
 <Layout>
@@ -40,7 +36,13 @@ function toArtistImage(artiste: { [key: string]: unknown }) {
                     {artistes.map((artiste) => (
                         <article class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition">
                             <div class="relative h-48 bg-gray-200 overflow-hidden">
-                                <img src={toArtistImage(artiste)} alt={artiste.nom_artiste || 'Artiste'} class="w-full h-full object-cover">
+                                <PbImage
+                                    record={artiste}
+                                    fieldName="photo_principal"
+                                    fallback="/images/images/les-artistes.avif"
+                                    alt={artiste.nom_artiste || 'Artiste'}
+                                    class="w-full h-full object-cover"
+                                />
                                 <span class="absolute top-3 right-3 px-3 py-1 rounded-full text-white text-sm font-bold" style="background-color: var(--color-primary)">
                                     {artiste.genre_musical || 'Genre a confirmer'}
                                 </span>

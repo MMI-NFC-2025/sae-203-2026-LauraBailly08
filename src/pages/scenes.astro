@@ -1,13 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getRecordFileUrl, getScenesParNom } from '../lib/pocketbase';
+import { getScenesParNom } from '../lib/pocketbase';
+import PbImage from '../lib/PbImage.astro';
 
 const scenes = await getScenesParNom();
-
-function toSceneImage(scene: { [key: string]: unknown }) {
-  const file = typeof scene.photo_scene === 'string' ? scene.photo_scene : '';
-  return getRecordFileUrl(scene, file) || '/images/images/hero-du-site.avif';
-}
 ---
 
 <Layout>
@@ -29,7 +25,13 @@ function toSceneImage(scene: { [key: string]: unknown }) {
           <article class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
             <div class="md:grid md:grid-cols-2">
               <div class={index % 2 === 1 ? 'overflow-hidden md:order-2' : 'overflow-hidden'}>
-                <img src={toSceneImage(scene)} alt={scene.nom_scene || 'Scene'} class="w-full h-80 md:h-96 object-cover">
+                <PbImage
+                  record={scene}
+                  fieldName="photo_scene"
+                  fallback="/images/images/hero-du-site.avif"
+                  alt={scene.nom_scene || 'Scene'}
+                  class="w-full h-80 md:h-96 object-cover"
+                />
               </div>
 
               <div class={index % 2 === 1 ? 'p-8 md:p-10 flex flex-col justify-center md:order-1' : 'p-8 md:p-10 flex flex-col justify-center'}>

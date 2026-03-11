@@ -1,0 +1,41 @@
+---
+import { pb } from './pocketbase';
+
+type GenericRecord = {
+    [key: string]: unknown;
+};
+
+type Props = {
+    record: GenericRecord;
+    fieldName?: string;
+    fileName?: string;
+    fallback?: string;
+    alt?: string;
+    class?: string;
+};
+
+const {
+    record,
+    fieldName = '',
+    fileName = '',
+    fallback = '',
+    alt = '',
+    class: className = '',
+    ...imgProps
+} = Astro.props as Props & Record<string, unknown>;
+
+const fromField = fieldName && typeof record?.[fieldName] === 'string' ? (record[fieldName] as string) : '';
+const resolvedFile = fileName || fromField;
+
+let src = fallback;
+
+try {
+    if (resolvedFile) {
+        src = pb.files.getURL(record, resolvedFile);
+    }
+} catch {
+    src = fallback;
+}
+---
+
+<img src={src} alt={alt} class={className} {...imgProps} />

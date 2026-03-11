@@ -1,7 +1,7 @@
 import PocketBase from 'pocketbase';
 
 const POCKETBASE_URL = 'https://lafanfacomtoise.bailly-laura.fr';
-const pb = new PocketBase(POCKETBASE_URL);
+export const pb = new PocketBase(POCKETBASE_URL);
 
 export type ArtisteRecord = {
     id: string;
