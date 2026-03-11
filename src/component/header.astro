@@ -33,28 +33,94 @@
 
   <nav 
     id="mobile-menu"
-    class="hidden bg-white border-t border-gray-100"
+    class="hidden fixed inset-0 z-[60]"
+    aria-hidden="true"
   >
-    <ul class="flex flex-col p-4 space-y-4">
-      <li><a href="/" class="text-gray-700 font-medium transition-colors hover:opacity-70" style="--hover-color: var(--color-primary)">Accueil</a></li>
-      <li><a href="/le-festival" class="text-gray-700 font-medium transition-colors hover:opacity-70" style="--hover-color: var(--color-primary)">Le Festival</a></li>
-      <li><a href="/artistes" class="text-gray-700 font-medium transition-colors hover:opacity-70" style="--hover-color: var(--color-primary)">Artistes</a></li>
-      <li><a href="/programme" class="text-gray-700 font-medium transition-colors hover:opacity-70" style="--hover-color: var(--color-primary)">Programme</a></li>
-      <li><a href="/scenes" class="text-gray-700 font-medium transition-colors hover:opacity-70" style="--hover-color: var(--color-primary)">Scènes</a></li>
-      <li><a href="/infos-pratiques" class="text-gray-700 font-medium transition-colors hover:opacity-70" style="--hover-color: var(--color-primary)">Infos Pratiques</a></li>
-      <li><a href="/contact" class="text-gray-700 font-medium transition-colors hover:opacity-70" style="--hover-color: var(--color-primary)">Contact</a></li>
+    <button
+      id="menu-backdrop"
+      class="absolute inset-0 bg-black/70 opacity-0 transition-opacity duration-300"
+      aria-label="Fermer le menu"
+    ></button>
+
+    <div
+      id="menu-panel"
+      class="absolute inset-0 h-full w-full bg-black/95 translate-x-full transition-transform duration-300"
+    >
+    <button
+      id="menu-close"
+      class="absolute top-6 right-6 text-white hover:opacity-80 transition"
+      aria-label="Fermer le menu"
+    >
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+
+    <ul class="h-full flex flex-col items-center justify-center gap-6 px-6 text-center">
+      <li><a href="/" class="menu-link text-white text-xl md:text-2xl font-semibold transition hover:opacity-70">Accueil</a></li>
+      <li><a href="/le-festival" class="menu-link text-white text-xl md:text-2xl font-semibold transition hover:opacity-70">Le Festival</a></li>
+      <li><a href="/artistes" class="menu-link text-white text-xl md:text-2xl font-semibold transition hover:opacity-70">Artistes</a></li>
+      <li><a href="/programme" class="menu-link text-white text-xl md:text-2xl font-semibold transition hover:opacity-70">Programme</a></li>
+      <li><a href="/scenes" class="menu-link text-white text-xl md:text-2xl font-semibold transition hover:opacity-70">Scenes</a></li>
+      <li><a href="/infos-pratiques" class="menu-link text-white text-xl md:text-2xl font-semibold transition hover:opacity-70">Infos Pratiques</a></li>
+      <li><a href="/contact" class="menu-link text-white text-xl md:text-2xl font-semibold transition hover:opacity-70">Contact</a></li>
     </ul>
+    </div>
   </nav>
 </header>
 
 <script>
   const btn = document.getElementById('menu-toggle');
   const menu = document.getElementById('mobile-menu');
+  const backdrop = document.getElementById('menu-backdrop');
+  const panel = document.getElementById('menu-panel');
+  const closeBtn = document.getElementById('menu-close');
+  const menuLinks = document.querySelectorAll('.menu-link');
+
+  function openMenu() {
+    if (!menu || !btn || !backdrop || !panel) return;
+    menu.classList.remove('hidden');
+    requestAnimationFrame(() => {
+      backdrop.classList.remove('opacity-0');
+      panel.classList.remove('translate-x-full');
+    });
+    menu.setAttribute('aria-hidden', 'false');
+    btn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    if (!menu || !btn || !backdrop || !panel) return;
+    backdrop.classList.add('opacity-0');
+    panel.classList.add('translate-x-full');
+    setTimeout(() => {
+      menu.classList.add('hidden');
+    }, 300);
+    menu.setAttribute('aria-hidden', 'true');
+    btn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
 
   btn?.addEventListener('click', () => {
-    menu?.classList.toggle('hidden');
     const expanded = btn.getAttribute('aria-expanded') === 'true';
-    btn.setAttribute('aria-expanded', String(!expanded));
+    if (expanded) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  closeBtn?.addEventListener('click', closeMenu);
+  backdrop?.addEventListener('click', closeMenu);
+
+  menuLinks.forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      closeMenu();
+    }
   });
 
 </script>
