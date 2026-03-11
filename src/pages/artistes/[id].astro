@@ -1,0 +1,70 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { formatDateFr, formatTimeFr, getArtistesParDate, getArtisteById, getRecordFileUrl } from '../../lib/pocketbase';
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+    const artistes = await getArtistesParDate();
+
+    return artistes.map((artiste) => ({
+        params: { id: artiste.id },
+    }));
+}
+
+const { id } = Astro.params;
+const artiste = id ? await getArtisteById(id) : null;
+
+if (!artiste) {
+    return Astro.redirect('/artistes');
+}
+
+const photoPrincipale = getRecordFileUrl(artiste, artiste.photo_principal) || '/images/images/les-artistes.avif';
+const galerie = (Array.isArray(artiste.galerie_photo) ? artiste.galerie_photo : [])
+    .map((file) => getRecordFileUrl(artiste, file))
+    .filter(Boolean);
+---
+
+<Layout>
+    <section class="relative w-full h-96 md:h-128 overflow-hidden">
+        <img src={photoPrincipale} alt={artiste.nom_artiste || 'Artiste'} class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/45"></div>
+        <div class="relative h-full max-w-6xl mx-auto px-4 flex flex-col justify-end pb-10">
+            <a href="/artistes" class="text-white font-semibold mb-4 inline-flex items-center gap-2 hover:opacity-80">
+                <img src="/icones/flèche-gauche-carousel.svg" alt="Retour" class="w-4 h-4">
+                Retour aux artistes
+            </a>
+            <p class="text-white/90 font-semibold mb-2">{artiste.genre_musical || 'Genre a confirmer'}</p>
+            <h1 class="text-4xl md:text-6xl font-bold text-white">{artiste.nom_artiste || 'Artiste sans nom'}</h1>
+        </div>
+    </section>
+
+    <section class="max-w-4xl mx-auto px-4 py-16">
+        <div class="grid sm:grid-cols-2 gap-4 mb-8">
+            <div class="rounded-lg border border-gray-200 p-4">
+                <p class="text-sm text-gray-500 mb-1">Date</p>
+                <p class="font-semibold text-gray-900">{formatDateFr(artiste.date_representation)}</p>
+            </div>
+            <div class="rounded-lg border border-gray-200 p-4">
+                <p class="text-sm text-gray-500 mb-1">Heure</p>
+                <p class="font-semibold text-gray-900">{formatTimeFr(artiste.date_representation)}</p>
+            </div>
+        </div>
+
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Presentation</h2>
+        <p class="text-lg text-gray-700 leading-relaxed">
+            {artiste.descritpion || 'La presentation de cet artiste sera ajoutee prochainement.'}
+        </p>
+    </section>
+
+    {galerie.length > 0 && (
+        <section class="max-w-6xl mx-auto px-4 pb-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">Galerie</h2>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                {galerie.map((url) => (
+                    <img src={url} alt={`Photo de ${artiste.nom_artiste || 'artiste'}`} class="rounded-lg w-full h-64 object-cover border border-gray-200">
+                ))}
+            </div>
+        </section>
+    )}
+</Layout>

@@ -1,43 +1,54 @@
-import PocketBase from 'pocketbase'; 
+import PocketBase from 'pocketbase';
 const pb = new PocketBase('https://lafanfacomtoise.bailly-laura.fr');
 
-export async function artistesSorted() { 
-    const records = await pb.collection('artiste').getFullList({ sort: 'date_representation' }); 
-    return records; 
-
-
+export async function artistesSorted() {
+    const records = await pb.collection('artiste').getFullList({ sort: 'date_representation' });
+    return records;
 }
 
-export async function scenesName() { 
-    const records = await pb.collection('scene').getFullList({ sort: 'nom_scene' }); 
-    return records; 
+export async function scenesName() {
+    const records = await pb.collection('scene').getFullList({ sort: 'nom' });
+    return records;
 }
 
-export async function artistesName() { 
-    const records = await pb.collection('artiste').getFullList({ sort: 'nom_artiste' }); 
-    return records; 
+export async function artistesName() {
+    const records = await pb.collection('artiste').getFullList({ sort: 'nom' });
+    return records;
 }
 
-export async function artisteID(id) { 
-    const record = await pb.collection('artiste').getOne(id); 
-    return record; 
+export async function artisteID(id) {
+    const record = await pb.collection('artiste').getOne(id);
+    return record;
 }
 
-export async function sceneID(id) { 
-    const record = await pb.collection('scene').getOne(id); 
-    return record; 
+// ✅ utile pour ta page détail artiste
+export async function artisteDetail(id) {
+    const record = await pb.collection('artiste').getOne(id, { expand: 'scene' });
+    return record;
 }
 
-export async function allartistebysceneId(id) { 
-    const records = await pb.collection('artiste').getFullList({ filter: scene="${id}", sort: 'date_representation' }); 
-    return records; 
+export async function sceneID(id) {
+    const record = await pb.collection('scene').getOne(id);
+    return record;
+}
+
+export async function allartistebysceneId(id) {
+    const records = await pb.collection('artiste').getFullList({
+        filter: `scene="${id}"`,
+        sort: 'date_representation'
+    });
+    return records;
 }
 
 export async function allartistebysceneName(nom) {
-    const scene = await pb.collection('scene').getFirstListItem(nom="${nom}");
-    const records = await pb.collection('artiste').getFullList({ filter: scene="${scene.id}", sort: 'date_representation' }); 
-    return records; 
+    const scene = await pb.collection('scene').getFirstListItem(`nom="${nom}"`);
+    const records = await pb.collection('artiste').getFullList({
+        filter: `scene="${scene.id}"`,
+        sort: 'date_representation'
+    });
+    return records;
 }
+
 export async function addArtiste(artisteData) {
     try {
         const record = await pb.collection('artiste').create(artisteData);
@@ -80,4 +91,19 @@ export async function updateScene(id, sceneData) {
         console.error('Erreur lors de la modification de la scène :', error);
         throw error;
     }
+}
+
+// Liste artistes + scène (utile pour cartes/listes)
+export async function artistesWithScene() {
+    const records = await pb.collection('artiste').getFullList({
+        sort: 'date_representation',
+        expand: 'scene'
+    });
+    return records;
+}
+
+// URL d'image PocketBase (avec fallback)
+export function artisteImageUrl(artiste, field = 'image') {
+    if (!artiste?.[field]) return '/assets/images/default-artist.avif';
+    return pb.files.getURL(artiste, artiste[field]);
 }

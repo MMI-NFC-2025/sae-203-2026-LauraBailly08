@@ -1,14 +1,68 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getRecordFileUrl, getScenesParNom } from '../lib/pocketbase';
+
+const scenes = await getScenesParNom();
+
+function toSceneImage(scene: { [key: string]: unknown }) {
+  const file = typeof scene.photo_scene === 'string' ? scene.photo_scene : '';
+  return getRecordFileUrl(scene, file) || '/images/images/hero-du-site.avif';
+}
 ---
 
 <Layout>
-  <script>
-    // Redirect to scènes page
-    window.location.href = '/scènes';
-  </script>
-  
-  <div class="min-h-screen flex items-center justify-center">
-    <p>Redirection en cours...</p>
-  </div>
+  <section class="py-20 px-4 md:px-6 text-center bg-gray-50">
+    <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-4">Les Scenes</h1>
+    <p class="text-xl text-gray-600 max-w-2xl mx-auto">Decouvrez les scenes du festival en centre-ville de Montbeliard.</p>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 py-16 md:py-24">
+    <h2 class="text-4xl font-bold text-gray-900 mb-12 text-center">Scenes du Festival</h2>
+
+    {scenes.length === 0 ? (
+      <div class="border border-gray-200 rounded-lg p-8 text-center text-gray-700">
+        Aucune scene disponible pour le moment.
+      </div>
+    ) : (
+      <div class="space-y-12">
+        {scenes.map((scene, index) => (
+          <article class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+            <div class="md:grid md:grid-cols-2">
+              <div class={index % 2 === 1 ? 'overflow-hidden md:order-2' : 'overflow-hidden'}>
+                <img src={toSceneImage(scene)} alt={scene.nom_scene || 'Scene'} class="w-full h-80 md:h-96 object-cover">
+              </div>
+
+              <div class={index % 2 === 1 ? 'p-8 md:p-10 flex flex-col justify-center md:order-1' : 'p-8 md:p-10 flex flex-col justify-center'}>
+                <div class="mb-4">
+                  <span class="inline-flex items-center gap-2 font-semibold mb-2" style="color: var(--color-primary);">
+                    <img src="/icones/position.svg" alt="Scene" class="w-5 h-5">
+                    Scene {index + 1}
+                  </span>
+                  <h2 class="text-3xl md:text-4xl font-bold text-gray-900">{scene.nom_scene || 'Nom de scene indisponible'}</h2>
+                </div>
+
+                <p class="text-gray-600 mb-6 text-lg">{scene.description_scene || 'Description a venir.'}</p>
+
+                <div class="space-y-3 mb-8">
+                  <div class="flex items-center gap-3 text-gray-700">
+                    <img src="/icones/position.svg" alt="Localisation" class="w-5 h-5 shrink-0">
+                    <span>{scene.localisation || 'Localisation a confirmer'}</span>
+                  </div>
+                  <div class="flex items-center gap-3 text-gray-700">
+                    <img src="/icones/public.svg" alt="Capacite" class="w-5 h-5 shrink-0">
+                    <span>Capacite : {scene.capacite || 'A confirmer'} personnes</span>
+                  </div>
+                </div>
+
+                <a href={`/scenes/${scene.id}`} class="inline-flex items-center gap-2 text-white px-6 py-3 rounded-lg font-semibold w-fit hover:opacity-90 transition" style="background-color: var(--color-primary);">
+                  En savoir plus
+                  <img src="/icones/flèche-droite-carousel.svg" alt="Fleche" class="w-5 h-5">
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    )}
+  </section>
 </Layout>
