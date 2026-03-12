@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { formatDateFr, formatTimeFr, getArtistesParDate } from '../../backend/backend.mjs';
+import { formatDateFr, formatTimeFr, getArtistesParDate } from '../component/frontend-utils.mjs';
 import PbImage from '../lib/PbImage.astro';
 
 const artistes = await getArtistesParDate();

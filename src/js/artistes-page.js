@@ -1,4 +1,4 @@
-import { artistesWithScene, artisteImageUrl } from '../../backend/backend.mjs';
+import { artistesWithScene, artisteImageUrl } from '../component/frontend-utils.mjs';
 
 const list = document.querySelector('#artists-list');
 

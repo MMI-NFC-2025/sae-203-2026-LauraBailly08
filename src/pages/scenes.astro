@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getScenesParNom } from '../../backend/backend.mjs';
+import { getScenesParNom } from '../component/frontend-utils.mjs';
 import PbImage from '../lib/PbImage.astro';
 
 const scenes = await getScenesParNom();
