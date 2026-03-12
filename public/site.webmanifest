@@ -1,0 +1,21 @@
+{
+  "name": "La Fete Comtoise",
+  "short_name": "Fete Comtoise",
+  "description": "Festival gratuit et ecologique a Montbeliard",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#f5a623",
+  "icons": [
+    {
+      "src": "/favicon/favicons/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon/favicons/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
